@@ -1,0 +1,10 @@
+package j01_basic;
+
+// 기본 자료형의 Wrapper Class, 치환, Overflow
+public class Ex03_Variable02 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -52,7 +52,7 @@ public class Ex02_Variable01 {
 		// 1) 적합성
 		String 이름 = "홍길동"; // 변수명을 한글로 하는 것은 권장하지 않음
 		String irum = "홍길동"; // 한글 발음 그대로 영어로 표기하는 것도 바람직하지 않음
-		String Name; // name 과 Name 은 다르며, 변수 명의 첫 글자 대문자는 바람직하지 않음
+		// String Name; // name 과 Name 은 다르며, 변수 명의 첫 글자 대문자는 바람직하지 않음
 
 		System.out.println(PI);
 		System.out.println(이름);
@@ -88,10 +88,8 @@ public class Ex02_Variable01 {
 		// 2.3) boolean
 		// true = 1 / false = 0
 		// => 모든 관계식의 결과는 boolean type
-		boolean bool = true;
+		// boolean bool = true;
 
-		System.out.println(bool);
-		System.out.println(!bool);
 		System.out.println("** boolean : " + (b > s));
 
 		// 2.4) char
