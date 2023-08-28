@@ -19,6 +19,8 @@ public class Ex03_Variable02 {
 
 		System.out.println("cup1 : " + cup1);
 		System.out.println("cup2 : " + cup2);
+		
+//		=================================================
 
 		// ** Wrapper Class
 		// => 기본 자료형을 지원해주는 클래스 (모든 기본자료형에 있음)
@@ -33,6 +35,8 @@ public class Ex03_Variable02 {
 		System.out.printf("float : %f ~ %f\n", Float.MIN_VALUE, Float.MAX_VALUE);
 		System.out.printf("double : %f ~ %f\n", Double.MIN_VALUE, Double.MAX_VALUE);
 
+//		===================================================
+		
 		// ** Overflow / Underflow
 		// 1) 정수형
 		short sMax = Short.MAX_VALUE;
@@ -53,6 +57,8 @@ public class Ex03_Variable02 {
 
 		// => 출력 시 overflow, underflow 가 일어나면 기본적으로 int 연산이 일어나지만,
 		// type 을 지정해주면 overflow 는 최솟값으로, underflow 는 최댓값으로 연산됨
+		
+//		==========================================================
 
 		// 2) 실수형
 		// => by zero Test

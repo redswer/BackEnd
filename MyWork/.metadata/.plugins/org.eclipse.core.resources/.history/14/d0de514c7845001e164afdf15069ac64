@@ -1,0 +1,18 @@
+package j01_basic;
+
+//** Type Casting (형변환)
+//1. 자동 (프로모션 promotion , 확대 형변환)
+// => 큰자료형에 작은자료형을 대입하면 : 자동으로 이루어짐
+
+//2. 강제 (디모션, demotion, 축소 형변환)
+// => 작은자료형에 큰자료형을 대입 : 자동으로 이루어지지않음
+//=> 자료의 Type이 다른경우
+//=> 명시적 형변환
+
+public class Ex04_Casting {
+
+	public static void main(String[] args) {
+
+	}
+
+}

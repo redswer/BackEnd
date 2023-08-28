@@ -47,6 +47,8 @@ public class Ex02_Variable01 {
 		final double PI = 3.141592;
 		// => final 을 앞에 붙여주면 상수 (변수와 달리 값이 바뀌지 않음)
 		// PI = 3.333333; // PI 는 상수로 선언되었으므로 오류
+		
+//		===============================================
 
 		// ** 변수
 		// 1) 적합성
@@ -58,12 +60,16 @@ public class Ex02_Variable01 {
 		System.out.println(이름);
 		System.out.println(irum);
 
+//		=================================================
+		
 		// 2) Type
 		// 2.1) 정수형
 		// => byte(8_1), short(16_2), int(32_4byte), long(64_8byte)
 		byte b = 10;
 		short s = 100;
 		int i = 1234567890; // 선언과 동시에 초기화
+		
+//		================================================
 
 		// ** 정수사용 주의사항
 		// => Java 는 정수 literal 을 int 로 취급
@@ -73,6 +79,8 @@ public class Ex02_Variable01 {
 		l = 1234567890123456789L; // 값을 할당
 
 		System.out.println("** 정수 : " + (b + s + i + l));
+		
+//		====================================================
 
 		// 2.2) 실수형
 		// => float(4byte), double(8byte)
@@ -84,6 +92,8 @@ public class Ex02_Variable01 {
 		float f = 123.456f;
 
 		System.out.println("** 실수 : " + (d + f));
+		
+//		====================================================
 
 		// 2.3) boolean
 		// true = 1 / false = 0
@@ -91,6 +101,8 @@ public class Ex02_Variable01 {
 		// boolean bool = true;
 
 		System.out.println("** boolean : " + (b > s));
+		
+//		====================================================
 
 		// 2.4) char
 		// => 한글, 영문 모두 한 글자를 의미, 2byte
@@ -119,6 +131,8 @@ public class Ex02_Variable01 {
 		System.out.println("** char + String : " + (aa + bb + cc + ss));
 		// => 괄호 내부에서 순서대로 연산되었기 때문에 int 연산 후 문자열 연산 됨
 
+//		=======================================================================
+		
 		char k = '가', n = '나';
 		System.out.printf("** k=%s, n=%s\n", k, n);
 	}
