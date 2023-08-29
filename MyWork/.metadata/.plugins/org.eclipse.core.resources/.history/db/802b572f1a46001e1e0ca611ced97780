@@ -1,0 +1,40 @@
+package j01_basic;
+
+public class Ex06_Print {
+
+	public static void main(String[] args) {
+		// ** Escape 문자 : 역활이 정해져 있는 문자
+		// => \n 줄바꿈, \t 탭간격, ...
+
+		String path = "JinHyuk_Ahn\\BackEnd\\MyWork\\src\\jo1_basic";
+		System.out.println("** path : " + path);
+		// => 경로 출력
+
+		System.out.println("** 따옴표 출력 : " + "'ABC',\"ABC\"");
+		// => 'ABC', "ABC" 처럼 따옴표까지 포함해서 출력
+		
+		System.out.println("abcd\tefghi\tjk123\n");
+	      System.out.println("\n");
+	      System.out.println('\n'); // 한문자만(char) 출력하는 경우-> 작은따옴표 허용
+	      System.out.println('\''); // char ' 출력
+	      System.out.println('A');
+	      System.out.println('가');
+		
+//		===============================================
+
+		// ** print, println, printf
+
+		// ** 날짜출력
+		// java.util.Date now
+
+		// => 출력형식
+		// % : 출력형식을 의미하는 문자열은 반드시 %로 시작,
+		// %d : 정수 , %f 실수, %s 문자
+		// %,d : 정수에 3자리마다 , 표시
+		// %t : 날짜 시간을
+		// %n , \n : 줄바꿈
+		// $ 사용하면 매개변수의 갯수를 줄일 수 있음
+		// => %2$d : 2번째 매개변수 정수
+	}
+
+}
