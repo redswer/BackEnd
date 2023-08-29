@@ -1,0 +1,15 @@
+package j01_basic;
+
+//** 2진수(Binary number), 8진수 , 16진수 표기
+//=> 2진수 : 0b 로시작 -> 0b1111
+//=> 8진수 : 0  Octal Number
+//=> 16진수: 0x Hexadecimal Number
+//=> 03_01~.ppt, 18page  
+
+public class Ex05_BinOctHex {
+
+	public static void main(String[] args) {
+
+	}
+
+}
