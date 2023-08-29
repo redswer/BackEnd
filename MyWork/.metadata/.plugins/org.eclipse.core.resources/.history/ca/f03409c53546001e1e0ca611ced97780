@@ -1,0 +1,13 @@
+package j01_basic;
+
+//연산자(Operator)는 특정한 연산을 나타내는 기호
+//피연산자(Operand)는 연산의 대상
+//연산자의 우선순위 => ppt J03_02 , 23p
+
+public class Ex08_Operator01 {
+
+	public static void main(String[] args) {
+//
+	}
+
+}
