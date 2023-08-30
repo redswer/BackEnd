@@ -148,8 +148,55 @@ public class Ex03_switchbasic {
 			System.out.println("학생");
 		}
 
-		sc.close();
 		System.out.println("\n** 프로그램 정상 종료됨 **");
+
+//		==========================================
+
+		// ** Ex02 의 '비교2 : 중첩 if' 를 switch 로 바꿔보기
+//		if (score >= 90) {
+//			grade = 'A';
+//		} else {
+//			if (score >= 80) {
+//				grade = 'B';
+//			} else {
+//				if (score >= 70) {
+//					grade = 'C';
+//				} else {
+//					if (score >= 60) {
+//						grade = 'D';
+//					} else {
+//						grade = 'F';
+//					}
+//				} // 70 else
+//			} // 80 else
+//		} // 90 else
+		System.out.println("점수를 입력하세요");
+		int score = sc.nextInt();
+
+		char grade = 'A';
+
+		switch (score / 10) {
+		case 10:
+		case 9:
+			grade = 'A';
+			break;
+		case 8:
+			grade = 'B';
+			break;
+		case 7:
+			grade = 'C';
+			break;
+		case 6:
+			grade = 'D';
+			break;
+		default:
+			grade = 'F';
+			break;
+		}
+
+		System.out.println(grade);
+
+		sc.close();
 	} // main
 
 }

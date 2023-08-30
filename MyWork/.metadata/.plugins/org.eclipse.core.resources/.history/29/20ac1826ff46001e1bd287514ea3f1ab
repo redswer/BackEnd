@@ -1,0 +1,10 @@
+package j02_ifSwitch;
+
+public class Ex04_switchMonth {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
