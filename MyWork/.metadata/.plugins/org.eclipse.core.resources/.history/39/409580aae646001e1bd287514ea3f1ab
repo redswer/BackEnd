@@ -32,6 +32,7 @@ public class Ex02_ifElseif {
 
 		// 2) grade 출력
 		System.out.printf("score = %d, grade = %s \n", score, grade);
+		sc.close();
 
 //		===========================================
 
@@ -66,13 +67,12 @@ public class Ex02_ifElseif {
 					} else {
 						grade = 'F';
 					}
-				} // 70 else
-			} // 80 else
-		} // 90 else
+				}
+			}
+		}
 
 		System.out.printf("** 비교2 : score = %d, grade = %s \n", score, grade);
 
-		sc.close();
 	} // main
 
 } // class

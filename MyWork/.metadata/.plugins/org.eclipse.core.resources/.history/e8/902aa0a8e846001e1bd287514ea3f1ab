@@ -53,6 +53,9 @@ public class Ex02_ifElseif {
 
 		// ** 비교2 : 중첩 if
 		if (score >= 90) {
+			if (score == 100) {
+				System.out.println("장학금 지급 대상입니다.");
+			}
 			grade = 'A';
 		} else {
 			if (score >= 80) {
