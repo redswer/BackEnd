@@ -1,0 +1,9 @@
+package j02_ifSwitch;
+
+public class Ex03_switchbasic {
+
+	public static void main(String[] args) {
+
+	}
+
+}

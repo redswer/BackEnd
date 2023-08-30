@@ -1,0 +1,10 @@
+package j02_ifSwitch;
+
+public class Ex03_ifSwitch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

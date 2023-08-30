@@ -1,0 +1,46 @@
+package j02_ifSwitch;
+
+import java.util.Scanner;
+
+//** switch - case - break 문
+//1. => switch(key) 문 인자의 Type은 int, char, String 만 가능
+//2. => break : 무조건 탈출 (없으면 아래로 계속 default 까지 진행)
+//3. => case 블럭에 구문이 없어도 됨 (아래 구문으로 진행됨)
+//4. => case 블럭에는 복합구문에도 {....} 사용하지 않음 
+//5. => case 값으로 변수 사용은 불가 그러나 변수를 사용하지 않은 수식은 허용
+
+public class Ex03_switchbasic {
+
+	public static void main(String[] args) {
+
+		// ** int
+		Scanner sc = new Scanner(System.in);
+		System.out.println("숫자를 입력하세요");
+		int i = sc.nextInt();
+
+		switch (i) {
+		case 1:
+			System.out.println("** 1 **");
+			break;
+		case 2:
+			System.out.println("** 2 **");
+			break;
+		case 3:
+			System.out.println("** 3 **");
+			break;
+		case 4:
+			System.out.println("** 4 **");
+			// break;
+		case 5:
+			System.out.println("** 5 **");
+			// break;
+		default:
+			System.out.println("default");
+			// break;
+		} // switch(i)
+			// => break; 가 없으면 입력된 값 아래의 case 를 전부 실행함
+
+		sc.close();
+	} // main
+
+} // class
