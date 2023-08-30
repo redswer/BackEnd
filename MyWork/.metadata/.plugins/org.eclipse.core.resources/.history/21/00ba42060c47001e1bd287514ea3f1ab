@@ -1,0 +1,18 @@
+package j02_ifSwitch;
+
+//** 숫자 맞추기 게임
+//=> 1~10 범위에서 숫자 하나를 입력받아
+//=> Random 클래스의 추출번호와 일치하면 금메달
+//=> 차이가 1 이면 은메달, 차이가 2면 동메달, 아니면 꽝
+//=> Math 클래스를 이용하세요 ~~
+
+import java.util.Scanner;
+
+public class Ex05_RandomGame {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+	}
+
+}
