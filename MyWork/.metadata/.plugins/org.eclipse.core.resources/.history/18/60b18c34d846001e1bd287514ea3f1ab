@@ -1,0 +1,12 @@
+package j02_ifSwitch;
+
+public class Ex01_ifBasic {
+
+	public static void main(String[] args) {
+		// ** 삼항식
+		boolean rain = true;
+		String doing;
+
+	}
+
+}
