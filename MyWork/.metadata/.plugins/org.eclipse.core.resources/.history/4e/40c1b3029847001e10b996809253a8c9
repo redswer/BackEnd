@@ -1,0 +1,25 @@
+
+public class pr {
+
+	public static void main(String[] args) {
+
+		int num = 456;
+
+//		      System.out.println((int)(Math.floor(num / 100) * 100));
+		System.out.println((num / 100) * 100);
+
+		int numOfApples = 123;
+		int sizeOfBucket = 10;
+//		      int numOfBucket = ((numOfApples % sizeOfBucket) == 0) ? numOfApples / sizeOfBucket : (numOfApples / sizeOfBucket) + 1 ;
+		int numOfBucket = numOfApples / sizeOfBucket + (numOfApples % sizeOfBucket > 0 ? 1 : 0);
+		System.out.println("필요한 바구니의 수 : " + numOfBucket);
+
+		int num = 10;
+		System.out.println((num == 0) ? 0 : (num > 0) ? "양수" : "음수");
+
+		int value = (int) ((Math.random() * 6) + 1);
+		System.out.println("value : " + value);
+
+	}
+
+}

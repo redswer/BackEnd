@@ -1,0 +1,10 @@
+package j03_forWhile;
+
+public class Ex01_LoopBasic {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
