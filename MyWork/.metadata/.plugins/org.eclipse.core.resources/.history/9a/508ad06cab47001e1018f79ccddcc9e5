@@ -1,0 +1,9 @@
+package j03_forWhile;
+
+public class Ex03_infinityLoop {
+
+	public static void main(String[] args) {
+// 1) for
+	} // main
+
+} // class
