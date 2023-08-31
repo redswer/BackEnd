@@ -1,0 +1,13 @@
+package j04_array;
+
+public class Ex01_ArrayBasic {
+
+	public static void main(String[] args) {
+		// ** 과제
+		// => 5명의 성적을 처리한다고 가정
+		int s1 = 11, s2 = 22, s3 = 33, s4 = 44, s5 = 55;
+		int sum = s1 + s2 + s3 + s4 + s5;
+		double avg = (double) sum / 5; // => 정수형 연산을 하기 때문에 double 로 바꿔야 소숫점까지 출력
+	} // main
+
+} // class

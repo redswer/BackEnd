@@ -8058,3 +8058,57 @@ java.lang.Error: SWT Resource was not properly disposed
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:07:55.785
 !MESSAGE executing callback sts4.classpath.PMAYUYPz SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:24:21.022
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PMAYUYPz
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:24:21.022
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.PMAYUYPz
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:24:21.023
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:24:21.023
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PMAYUYPz => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:13.578
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:13.579
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@71426d47[org.springframework.tooling.boot.ls:1.28.0.202109130547(id=1001)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:13.579
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.830
+!MESSAGE Boot LS startup time from start to initialized: 1251ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.899
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.OodRAnwHisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.OodRAnwH => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.900
+!MESSAGE classpath=2 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.901
+!MESSAGE buffering callback sts4.classpath.OodRAnwH Java01 false 2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:14.901
+!MESSAGE executing callback sts4.classpath.OodRAnwH 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-08-31 17:25:15.108
+!MESSAGE executing callback sts4.classpath.OodRAnwH SUCCESS [done]
