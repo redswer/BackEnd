@@ -1,0 +1,9 @@
+package j04_array;
+
+public class Ex02_ArrayType {
+
+	public static void main(String[] args) {
+
+	}
+
+}
