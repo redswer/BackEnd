@@ -90,12 +90,12 @@ public class Ex01_ArrayBasic {
 		// char grade[] = { 'A', 'B', 'C', 'D', 'F' };
 		// => 명시적 선언과 마찬가지로 []의 위치는 변수 뒤에도 가능
 
-		String a = "";
+		String a = "A";
 		for (char k : grade) {
 			System.out.print("[" + k + "] ");
-			a += k;
+			a += grade;
 		}
-		System.out.println(", " + a);
+		System.out.println(a);
 
 	} // main
 

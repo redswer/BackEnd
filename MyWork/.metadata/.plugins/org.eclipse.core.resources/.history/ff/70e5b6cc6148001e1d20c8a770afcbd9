@@ -53,6 +53,7 @@ public class Ex01_230831 {
 		do {
 			count++;
 			System.out.println("1과 100 사이의 정수를 입력하세요");
+
 			input = sc.nextInt();
 
 			if (answer > input) {

@@ -95,7 +95,7 @@ public class Ex01_ArrayBasic {
 			System.out.print("[" + k + "] ");
 			a += k;
 		}
-		System.out.println(", " + a);
+		System.out.println("," + a);
 
 	} // main
 
