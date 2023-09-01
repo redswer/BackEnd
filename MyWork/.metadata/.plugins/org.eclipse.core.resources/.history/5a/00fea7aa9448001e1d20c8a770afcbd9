@@ -1,0 +1,48 @@
+package j04_array;
+
+import java.util.Arrays;
+
+public class Ex05_Lotto02_Sort {
+
+	public static void main(String[] args) {
+		int[] lotto = new int[6];
+
+//				==============================
+
+		// 2) Random 으로 숫자 추출하고 배열에 담기
+		for (int i = 0; i < lotto.length; i++) {
+
+			int random = (int) (Math.random() * 45) + 1;
+			lotto[i] = random;
+
+			// ** 중복확인 절차
+			// => 숫자추출 후, lotto에 담기전
+			// -> 임시변수 필요, 중복존재하면 안담고, 존재하지않으면 담는다.
+			// => 숫자추출 후, lotto에 담은후
+			// -> 중복존재하면 i 값을 후진시켜 다시 담도록 (선택)
+
+			// ** 중복확인 방법
+			// => 이미 lotto 배열에 담겨있는 Data 와 동일성 비교
+			// ( 그러므로 반복문 필요 )
+			// => 값이 동일한 자료가 존재하는지 확인 (동일 자료 찾아보기 : search)
+			for (int j = 0; j < i; j++) {
+				if (lotto[i] == lotto[j]) {
+					--i;
+					break;
+				}
+			}
+
+		}
+
+//				==============================
+
+		// 3) 출력
+		System.out.println(Arrays.toString(lotto));
+//		==============================
+
+		// 5) 순서대로 정렬
+
+		// 5-1) 오름차순 정렬
+	}
+
+}

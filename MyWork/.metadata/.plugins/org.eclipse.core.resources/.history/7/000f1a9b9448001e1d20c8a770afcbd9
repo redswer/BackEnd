@@ -1,0 +1,14 @@
+package j04_array;
+
+public class Ex05_Lotto02 {
+
+	public static void main(String[] args) {
+
+//		==============================
+
+		// 5) 순서대로 정렬
+
+		// 5-1) 오름차순 정렬
+	}
+
+}

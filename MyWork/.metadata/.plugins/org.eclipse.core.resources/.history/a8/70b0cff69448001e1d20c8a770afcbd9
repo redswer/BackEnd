@@ -1,0 +1,35 @@
+package j04_array;
+
+import java.util.Arrays;
+
+public class Ex05_Lotto02_Sort {
+
+	public static void main(String[] args) {
+		int[] lotto = new int[6];
+
+		for (int i = 0; i < lotto.length; i++) {
+
+			int random = (int) (Math.random() * 45) + 1;
+			lotto[i] = random;
+
+			for (int j = 0; j < i; j++) {
+
+				if (lotto[i] == lotto[j]) {
+
+					--i;
+					break;
+				}
+			}
+
+		}
+		System.out.println(Arrays.toString(lotto));
+
+//		==============================
+
+		// 5) 순서대로 정렬
+
+		// 5-1) 오름차순 정렬
+
+	}
+
+}
