@@ -8,4 +8,5 @@
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="com.sun.source.tree.DoWhileLoopTree"/>
     <fullyQualifiedTypeName name="jdk.nashorn.api.tree.DoWhileLoopTree"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
