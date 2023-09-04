@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;a01_homework.Ex02_230904&apos; to &apos;Ex03_230904&apos;&#x0D;&#x0A;- Original project: &apos;Java01&apos;&#x0D;&#x0A;- Original element: &apos;a01_homework.Ex02_230904&apos;&#x0D;&#x0A;- Renamed element: &apos;a01_homework.Ex03_230904&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ex02_230904&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;a01_homework{Ex02_230904.java[Ex02_230904" matchStrategy="1" name="Ex03_230904" qualified="false" references="true" similarDeclarations="false" stamp="1693817867854" textual="false" version="1.0"/>
+</session>
