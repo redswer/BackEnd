@@ -9,6 +9,8 @@ class Book {
 	public String writer = "베르나르 베르베르";
 	public int price = 20000;
 	public int count = 1;
+	public String region = "서울";
+	public int delFee = (region == "제주" ? 5000 : 2000);
 
 	public void countUp() {
 		count += 1;
@@ -28,7 +30,7 @@ class Book {
 
 	public String toString() {
 		return "[ 제목 = " + name + ", 작가 = " + writer + ", 가격 = " + price + ", 수량 = " + count + ", 총 금액 = "
-				+ (price * count) + " ]";
+				+ (price * count + delFee) + " ]";
 	}
 }
 
@@ -40,6 +42,7 @@ public class Ex02_MyClassTest {
 		myBook.writer = "무라카미 하루키";
 		myBook.countUp();
 		myBook.priceDown();
+		myBook.region = "제주";
 		System.out.println(myBook);
 
 		myBook = null;

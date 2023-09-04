@@ -36,7 +36,7 @@ public class Ex02_MyClassTest {
 
 	public static void main(String[] args) {
 		Book myBook = new Book();
-		myBook.name = "1Q84 1권";
+		myBook.name = "1Q84";
 		myBook.writer = "무라카미 하루키";
 		myBook.countUp();
 		myBook.priceDown();
@@ -47,19 +47,15 @@ public class Ex02_MyClassTest {
 		Book bestBook = new Book();
 		bestBook.name = "개미 전권 (1~5)";
 		bestBook.writer = "베르나르 베르베르";
-		bestBook.price = 60000;
+		bestBook.priceUp();
+		bestBook.priceUp();
+		bestBook.priceUp();
+		bestBook.priceUp();
+		bestBook.priceUp();
+		bestBook.priceUp();
 		System.out.println("\n" + bestBook);
 
 		bestBook = null;
-
-		Book classicBook = new Book();
-		classicBook.name = "동물농장";
-		classicBook.writer = "조지 오웰";
-		classicBook.priceDown();
-		classicBook.priceDown();
-		System.out.println("\n" + classicBook);
-
-		classicBook = null;
 
 	}
 

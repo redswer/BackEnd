@@ -1,0 +1,19 @@
+package j05_classMethod;
+
+// ** MyClass
+// => 멤버변수 3개, 메서드 2개 정의
+// => MyClass 를 정의하고 Ex02_MyClassTest 에서 인스턴스 2개 만들어 출력하기
+
+class book {
+	public int price = 20000;
+	public int count = 2;
+	public String name = "";
+}
+
+public class Ex02_MyClassTest {
+
+	public static void main(String[] args) {
+
+	}
+
+}

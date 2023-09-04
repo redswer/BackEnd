@@ -47,10 +47,8 @@ public class Ex02_MyClassTest {
 		Book bestBook = new Book();
 		bestBook.name = "개미 전권 (1~5)";
 		bestBook.writer = "베르나르 베르베르";
-		bestBook.price = 60000;
+		bestBook.price = 16000;
 		System.out.println("\n" + bestBook);
-
-		bestBook = null;
 
 		Book classicBook = new Book();
 		classicBook.name = "동물농장";
@@ -59,7 +57,7 @@ public class Ex02_MyClassTest {
 		classicBook.priceDown();
 		System.out.println("\n" + classicBook);
 
-		classicBook = null;
+		bestBook = null;
 
 	}
 
