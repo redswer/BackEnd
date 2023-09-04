@@ -1,0 +1,9 @@
+package j05_classMethod;
+
+public class Ex03_Method {
+
+	public static void main(String[] args) {
+
+	}
+
+}
