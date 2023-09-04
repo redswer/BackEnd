@@ -1,0 +1,13 @@
+package j05_classMethod;
+
+public class Ex01_CarTest {
+
+	class Car {
+
+	}
+
+	public static void main(String[] args) {
+
+	} // main
+
+} // class
