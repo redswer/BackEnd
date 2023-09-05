@@ -1,0 +1,9 @@
+package j05_classMethod;
+
+public class Ex07_Constructor {
+
+	public static void main(String[] args) {
+
+	} // main
+
+} // class
