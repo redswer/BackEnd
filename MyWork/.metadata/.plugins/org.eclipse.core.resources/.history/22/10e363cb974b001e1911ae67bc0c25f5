@@ -1,0 +1,10 @@
+package j05_classMethod;
+
+public class Ex05_2_StaticTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

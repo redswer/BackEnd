@@ -1,0 +1,17 @@
+package j05_classMethod;
+
+public class Ex05_2_StaticTest {
+
+	public static void main(String[] args) {
+// ** 다른 클래스에 있는 static, instance 접근하기
+
+		// 1. static 변수 출력하기
+		System.out.println("total : " + Ex05_1_Static.total);
+
+		// 2. instance(non_static) 변수 출력하기
+		Ex05_1_Static ex05 = new Ex05_1_Static();
+		System.out.println("intstnaceAll : " + ex05.instanceAll(0, 0, ex05));
+
+	} // main
+
+} // class
