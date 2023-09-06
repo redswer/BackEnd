@@ -1,9 +1,0 @@
-package j05_classMethod;
-
-public class Ex05_Static {
-
-	public static void main(String[] args) {
-
-	} // main
-
-} // class
