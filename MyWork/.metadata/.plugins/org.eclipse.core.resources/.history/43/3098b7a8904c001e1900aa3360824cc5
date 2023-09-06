@@ -1,0 +1,9 @@
+package j07_classExtends;
+
+public class Ex01_classNclass {
+
+	public static void main(String[] args) {
+
+	} // main
+
+} // class

@@ -1,0 +1,22 @@
+package j07_classExtends;
+
+public class Ex00_Car {
+	public int speed;
+	public int mileage;
+	public String color = "Yellow";
+
+	static int ddd = 100;
+
+	public void speedUp() {
+		speed += 10;
+	}
+
+	public void speedDown() {
+		speed -= 10;
+	}
+
+	public String toString() {
+		return "[ speed = " + speed + ", mileage = " + mileage + ", color = " + color + " ]";
+	}
+}
+// class
