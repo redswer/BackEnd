@@ -1,0 +1,16 @@
+package j06_packageTest;
+
+//** Access Modifier (접근 한정자_제어자)
+//=> private : 해당 클래스내부 에서만
+//=> default : 같은 Package 내
+//=> protected : package + 자손
+//=> public : 프로젝트내의 모든 Class 접근 가능
+//(단, 다른 package 에서는 import 해야함)
+
+public class Ex01_AccessTest {
+
+	public static void main(String[] args) {
+
+	} // main
+
+} // class

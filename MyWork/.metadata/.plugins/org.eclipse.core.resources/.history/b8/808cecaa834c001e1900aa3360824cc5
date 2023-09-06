@@ -4,12 +4,10 @@ import java.util.Arrays;
 
 public class Ex10_CallByRefLotto {
 
-	// ** j06_packageTest 패키지의 Ex01_AccessTest 를 위한 변수선언
-	int ddd = 100; // -> default
-	public int iii = 200; // -> public instance
-	public static int sss = 300; // -> public static
-
-//	==========================================================
+	// j06_packageTest 패키지의 Ex01_AccessTest 를 위한 변수선언
+	int ddd = 100;
+	public int iii = 200;
+	public static int sss = 300;
 
 	public static void main(String[] args) {
 		int[] lotto = new int[6];
