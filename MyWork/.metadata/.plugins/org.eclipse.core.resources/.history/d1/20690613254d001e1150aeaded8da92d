@@ -1,0 +1,9 @@
+package j07_classExtends;
+
+public class Ex02_CarTest {
+
+	public static void main(String[] args) {
+
+	} // main
+
+} // class

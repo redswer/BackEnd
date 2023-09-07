@@ -6,7 +6,7 @@ public class Ex00_Car {
 	public String color = "Yellow";
 
 	public Ex00_Car() {
-		System.out.println("** Car 의 default 생성자 **");
+		System.out.println("* Car 의 default 생성자 **");
 	}
 
 	public Ex00_Car(int speed, int mileage, String color) {

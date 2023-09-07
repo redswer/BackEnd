@@ -1,0 +1,49 @@
+package j07_classExtends;
+
+// ** 상속 : extends
+// => 기능을 확장해서 업그레이드 버젼 만듦.
+// => 기존(조상) 클래스의 맴버들(필드와 메서드)을 재사용 & 일부 변경도 가능
+
+// ** 생성순서
+// => JVM은 extends 키워드가 있으면 조상 생성 후 후손 생성
+// 이때 기본은 조상의 default 생성자를 실행하고,
+// 특별히 후손 생성자에서 조상생성자_super(...)를 호출해 놓으면 그 생성자를 실행함.
+// => 상속을 허용하는 클래스는 default 생성자를 반드시 작성하는 것이 바람직함.
+
+// ** 조상 : Super (Parent, Base) class
+// => super. : 조상의 인스턴스를 의미 (조상의 맴버에 접근 가능)
+// => super()
+// 조상의 생성자를 의미 (조상의 생성자에 접근 가능).
+// this() 처럼 생성자 메서드 내에서 첫줄에 위치해야함.
+
+// => 생성자메서드_super(), this() 호출은 생성자 내에서만 가능
+
+// ** 후손 : Sub ( Child, Derived [diráivd] ) class
+// => super class 를 포함
+
+class SportsCar extends Ex00_Car {
+	int turbo;
+
+	SportsCar() {
+		System.out.println("** SportsCar 의 default 생성자 **");
+	}
+
+	SportsCar(int turbo) {
+		this.turbo = turbo;
+		System.out.println("** SportsCar 의 초기화 생성자 **");
+	}
+}
+
+public class Ex02_CarTest {
+
+	public static void main(String[] args) {
+		// 1) 상속 Test
+		// => 조상(Ex00_Car)의 멤버에 접근 가능함
+		SportsCar sc1 = new SportsCar();
+		sc1.color = "Blue";
+		System.out.println("sc1 : " + sc1);
+		System.out.println("SportsCar color : " + sc1.color);
+
+	} // main
+
+} // class

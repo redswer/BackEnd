@@ -1,0 +1,14 @@
+package j07_classExtends;
+
+class sportsCar extends Ex00_Car {
+
+}
+
+public class Ex02_CarTest {
+
+	public static void main(String[] args) {
+		// 1) 상속 Test
+
+	} // main
+
+} // class
