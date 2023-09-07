@@ -11,6 +11,7 @@
     <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.xinclude.XIncludeNamespaceSupport"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.function.ToIntFunction"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="j05_classMethod.Ex10_CallByRefLotto"/>
 </qualifiedTypeNameHistroy>

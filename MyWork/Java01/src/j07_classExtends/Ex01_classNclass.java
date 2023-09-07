@@ -17,11 +17,24 @@ public class Ex01_classNclass {
 
 	public static void main(String[] args) {
 		// 1) 집합 (has-a)
-		// => Ex01_classNclass 클래스와 Ex00_Car 클래스의 관계
 		System.out.println("** 1) 집합 (has-a)");
+
+		// => Ex01_classNclass 클래스와 Ex00_Car 클래스의 관계
 		System.out.println(car);
 
+		// => Student 와 Car 의 관계
+		Ex00_Student s1 = new Ex00_Student("0001", "홍길동", 99);
+		System.out.println(s1);
+		System.out.println("car color : " + s1.car.color);
+
+		// System.out.println("myCar color : " + s1.myCar.color);
+		// => (myCar 는 static으로 선언됨) s1.myCar를 사용은 할 수 있지만 권장하지 않음
+		// => 따라서 s1 대신 class 인 Ex00_Student 를 사용해야 함
+		System.out.println("myCar color : " + Ex00_Student.myCar.color);
+
+//		======================================================
 		// 2) 사용 (use)
+
 		// => Ex01_classNclass 클래스가 Ex00_Car를 매서드 인자의 형식으로 사용한 경우
 		System.out.println("\n** 2) 사용 (use)");
 		myCar(car);
