@@ -1,0 +1,11 @@
+package a01_homework;
+
+public class Pet extends Mammal {
+
+	String todo;
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package a01_homework;
+
+public class Wild extends Mammal {
+	String place;
+
+	public static void main(String[] args) {
+
+	}
+
+}

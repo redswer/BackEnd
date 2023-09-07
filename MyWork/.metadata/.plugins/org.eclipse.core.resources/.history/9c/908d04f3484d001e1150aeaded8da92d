@@ -1,0 +1,9 @@
+package a01_homework;
+
+public class Pet extends Mammal {
+
+	public static void main(String[] args) {
+
+	}
+
+}

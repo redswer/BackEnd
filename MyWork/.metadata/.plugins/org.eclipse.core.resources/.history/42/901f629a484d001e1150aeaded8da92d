@@ -1,0 +1,9 @@
+package a01_homework;
+
+public class Animal {
+
+	public static void breathe() {
+
+	}
+
+}

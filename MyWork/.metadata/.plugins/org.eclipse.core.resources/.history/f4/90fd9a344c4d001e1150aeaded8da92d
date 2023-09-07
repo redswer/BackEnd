@@ -1,0 +1,24 @@
+package a01_homework;
+
+public class Pet extends Mammal {
+
+	String toDo = "예방접종";
+
+	public String toString() {
+		return "할 일 = " + toDo + "하기";
+	}
+
+	public void dog() {
+		super.breath = "육지";
+		super.legs = 4;
+		super.cry = "어흥";
+		super.run = "빠름";
+	}
+
+	public static void main(String[] args) {
+
+		Pet animal = new Pet();
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package a01_homework;
+
+public class Animal {
+
+	String breath;
+	int legs;
+
+	public void breath(String breath) {
+		this.breath = breath;
+	}
+
+}

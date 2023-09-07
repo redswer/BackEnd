@@ -1,0 +1,20 @@
+package a01_homework;
+
+public class Animal {
+
+	String breath = "육지";
+	int legs = 4;
+
+	public void breath(String breath) {
+		this.breath = breath;
+	}
+
+	public void legs(int legs) {
+		this.legs = legs;
+	}
+
+	public String toString(String breath, int legs) {
+		return "호흡 = " + breath + ", 다리 = " + legs + "개";
+	}
+
+}

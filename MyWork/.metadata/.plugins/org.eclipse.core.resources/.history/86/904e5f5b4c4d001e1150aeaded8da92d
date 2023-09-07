@@ -1,0 +1,40 @@
+package a01_homework;
+
+public class Pet extends Mammal {
+
+	String toDo = "예방접종";
+
+	public String toString() {
+		return "할 일 = " + toDo + "하기";
+	}
+
+	public void dog() {
+		super.breath = "육지";
+		super.legs = 4;
+		super.cry = "멍멍";
+		super.run = "중간";
+
+		System.out.println("개 => " + "[ " + super.toString(breath, legs) + ", " + super.toString(cry, run) + ", "
+				+ toString() + " ]");
+	}
+
+	public void dog() {
+		super.breath = "육지";
+		super.legs = 4;
+		super.cry = "멍멍";
+		super.run = "중간";
+
+		System.out.println("개 => " + "[ " + super.toString(breath, legs) + ", " + super.toString(cry, run) + ", "
+				+ toString() + " ]");
+	}
+
+	public static void main(String[] args) {
+
+		Pet animal = new Pet();
+
+		animal.dog();
+
+		animal.cat();
+	}
+
+}

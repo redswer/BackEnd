@@ -1,0 +1,19 @@
+package a01_homework;
+
+public class Mammal extends Animal {
+
+	String cry;
+	String run;
+
+	public void cry(String cry) {
+		this.cry = cry;
+	}
+
+	public void run(String run) {
+		this.run = run;
+	}
+
+	public String toString(String cry, String run) {
+		return "울음 = " + cry + ", 뛰기 = " + run;
+	}
+}

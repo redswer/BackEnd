@@ -1,0 +1,10 @@
+package a01_homework;
+
+public class Wild {
+	String place;
+
+	public static void main(String[] args) {
+
+	}
+
+}

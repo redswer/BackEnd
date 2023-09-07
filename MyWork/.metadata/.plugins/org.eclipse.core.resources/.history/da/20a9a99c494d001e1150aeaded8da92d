@@ -1,0 +1,14 @@
+package a01_homework;
+
+public class Pet extends Mammal {
+
+	String todo = "예방접종";
+
+	public static void main(String[] args) {
+
+		Pet dog = new Pet();
+		Pet cat = new Pet();
+
+	}
+
+}
