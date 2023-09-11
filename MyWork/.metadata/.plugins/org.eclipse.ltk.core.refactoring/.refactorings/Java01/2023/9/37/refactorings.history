@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;j08_AbsInterface.Ex05_StaticDefault&apos; to &apos;Ex05_staticDefault&apos;&#x0D;&#x0A;- Original project: &apos;Java01&apos;&#x0D;&#x0A;- Original element: &apos;j08_AbsInterface.Ex05_StaticDefault&apos;&#x0D;&#x0A;- Renamed element: &apos;j08_AbsInterface.Ex05_staticDefault&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ex05_StaticDefault&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;j08_AbsInterface{Ex05_StaticDefault.java[Ex05_StaticDefault" matchStrategy="1" name="Ex05_staticDefault" qualified="false" references="true" similarDeclarations="false" stamp="1694415476855" textual="false" version="1.0"/>
+</session>

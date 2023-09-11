@@ -89,6 +89,11 @@ public class Ex02_InterAnimal {
 		animal.breath();
 		animal.sound();
 		animal.special();
+		// => 비교
+		animal = c1;
+		animal = c2; // Animal animal = new Cati(); 와 동일구문
+		// c2 = c1; // 오류 -> Cati c2 = new Animal(); 과 동일구문
+		// c2 = animal;
 
 		// 3) 메서드 호출
 		animalUse(c1);

@@ -1,0 +1,43 @@
+package j08_AbsInterface;
+
+//** interface 4.
+//=> 상수, 추상메서드
+//=> static, default 메서드 (구현부가 있는 메서드, Java8 부터 추가됨)
+
+//** static, default
+//=> 반드시 바디를 구현 해야함
+//=> 구현클래스의 오버라이딩 의무 없음
+
+interface NewInter {
+	// ** 추상 메서드
+	// => 반드시 헤더만 정의, 바디부(실행부)는 없어야 함
+
+	void test(); // 앞에 public abstract 생략됨
+
+//	=============
+	// ** static
+	// => 반드시 바디부(실행부)를 구현해야 함
+
+	// static void staticTest(); // => 오류
+	static void staticTest() {
+		System.out.println("** interface staticTest() **");
+	}
+
+//	=============
+	// ** default
+	// => 반드시 바디부(실행부)를 구현해야 함
+
+	// default void defaultTest();
+	default void defaultTest() {
+		System.out.println("** interface defaultTest() **");
+	}
+
+}
+
+public class Ex05_StaticDefault {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

@@ -70,6 +70,9 @@ public class Ex03_MyInterfaceTest {
 		MyChild2 mch2 = new MyChild2();
 		// mch2=mch1; // 서로 다른 Type 이므로 오류
 
+		System.out.println(mch1);
+		System.out.println(mch2);
+
 	} // main
 
 } // class

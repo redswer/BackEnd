@@ -1,0 +1,9 @@
+package j08_AbsInterface;
+
+public class Ex04_MultiTest {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

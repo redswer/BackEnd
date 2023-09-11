@@ -1,0 +1,24 @@
+package j08_AbsInterface;
+
+//** 추상클래스 와 interface 의 활용 
+//=> 일반적인 경우 사례
+//=> 실무에서는 interface가 많이 사용되고 (다중구현의 장점) ,  
+// API 의 계층도에서는 추상클래스도 많이 이용됨 
+
+//** 과제
+//=> 게시판을 종류별로 10개 이상 만든다고 가정.
+//=> 기본 기능 (interface) : insert, update, delete, listPrint, detail, replyInsert
+//=> 게시판 종류별로 : 일반게시판(i,u,d,l,detail,r), QnA(i,r,l), 공지사항(i,l,detail)
+//=> 모든 게시판은 interface 를 구현해야한다면
+// 게시판 종류에 따라 필요없는 메서드도 오버라이딩 해야함.
+// 이런 경우 interface 를 구현하는 추상 클래스를 작성하고
+// 게시판은 이 추상클래스를 구현한다면 의무적 구현에서 벗어나 필요한 메서드만 구현 할 수 있음.
+
+public class Ex06_AbsInter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

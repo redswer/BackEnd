@@ -1,0 +1,10 @@
+package j08_AbsInterface;
+
+public class Ex06_AbsInter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

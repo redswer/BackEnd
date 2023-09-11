@@ -1,0 +1,26 @@
+package j08_AbsInterface;
+
+//** interface 3.
+//1) 인터페이스와 인터페이스 관계
+//=> 인터페이스 간의 상속(extends) 가능.
+//=> 다중상속(부모 여러개 허용), 계층적 상속 모두 가능 
+
+//2) 클래스 와 인터페이스 관계
+//=> 다중 구현(implements) 가능
+//=> 클래스가 클래스를 상속(extends) 받으면서 동시에
+// 인터페이스를 구현(implements, 다중구현도 포함) 하는것 가능 
+
+//** 그러므로 자바는 다중상속이 안되는점을 극복 가능함
+
+interface Inter1 {
+	float PI = 3.14159f; // public static final 생략됨
+	int getA(); // public abstract 생략
+}
+
+public class Ex04_MultiTest {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class
