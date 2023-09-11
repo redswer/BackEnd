@@ -1,0 +1,10 @@
+package j08_AbsInterface;
+
+public class Ex02_InterAnimal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

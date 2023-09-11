@@ -14,4 +14,6 @@
     <fullyQualifiedTypeName name="java.util.function.ToIntFunction"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="j05_classMethod.Ex10_CallByRefLotto"/>
+    <fullyQualifiedTypeName name="j07_classExtends.Ex00_Student"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>

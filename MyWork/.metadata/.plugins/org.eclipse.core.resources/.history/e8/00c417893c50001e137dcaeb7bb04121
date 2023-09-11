@@ -1,0 +1,10 @@
+package j07_classExtends;
+
+public class Ex04_Child {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
