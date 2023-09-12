@@ -1,0 +1,14 @@
+package j09_innerClass;
+
+//** 익명클래스 (Anonymous 클래스)
+//=> 이름이 없는 클래스이며, 한번만 사용하고 버려지는 객체를
+// 사용 할 때 유용하게 쓰이는 내부클래스로서,
+// 다른 클래스를 상속받는 경우 또는 인터페이스를 구현하는 경우 이용됨  
+
+public class Ex05_AnonymousFly {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

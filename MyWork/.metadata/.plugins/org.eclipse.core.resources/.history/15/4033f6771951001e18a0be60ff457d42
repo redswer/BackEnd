@@ -1,0 +1,33 @@
+package j09_innerClass;
+
+import j07_classExtends.Ex00_Car;
+
+//** 클래스 맴버
+//=> 맴버(전역) 변수 : 선언문, 초기화 블럭
+//=> 메서드 : 생성자, main, setter/getter, toString, 일반메서드
+//=> 초기화블럭 : {   }  / static {   }
+//=> 내부(inner) 클래스 : 클래스 내부에 다른 클래스를 정의
+
+//** Inner Class 기본형식과 특성
+
+class OuterClass {
+	// 1) 멤버 변수
+
+	int age = 100;
+	private String name = "홍길동";
+	static String grade = "A++";
+
+	// => 맴버변수로 클래스를 정의
+	// => has-a 관계 : 재사용성이 많은경우
+	// inner 클래스와 비교 : 현재클래스에서만 필요한 경우
+	// (단, inner 클래스가 외부에서 접근 불가능한 맴버는 아님)
+	Ex00_Car car;
+}
+
+public class Ex01_InnerBasic {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

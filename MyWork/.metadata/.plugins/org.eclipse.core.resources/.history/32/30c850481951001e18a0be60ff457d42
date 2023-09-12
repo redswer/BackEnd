@@ -1,0 +1,27 @@
+package j09_innerClass;
+
+//** 클래스 맴버
+//=> 맴버(전역) 변수 : 선언문, 초기화 블럭
+//=> 메서드 : 생성자, main, setter/getter, toString, 일반메서드
+//=> 초기화블럭 : {   }  / static {   }
+//=> 내부(inner) 클래스 : 클래스 내부에 다른 클래스를 정의
+
+//** Inner Class 기본형식과 특성
+
+class OuterClass {
+	// 1) 멤버 변수
+
+	int age = 100;
+	private String name = "홍길동";
+	static String grade = "A++";
+
+	Ex01_Car car;
+}
+
+public class Ex01_InnerBasic {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

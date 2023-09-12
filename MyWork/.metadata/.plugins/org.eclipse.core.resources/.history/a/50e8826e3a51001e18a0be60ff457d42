@@ -1,0 +1,9 @@
+package j09_innerClass;
+
+public class Ex05_AnnonymousFly {
+
+	public static void main(String[] args) {
+
+	}
+
+}

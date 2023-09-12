@@ -1,0 +1,10 @@
+package j09_innerClass;
+
+public class Ex01_InnerBasic {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

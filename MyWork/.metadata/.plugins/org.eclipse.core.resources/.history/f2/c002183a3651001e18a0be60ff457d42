@@ -1,0 +1,21 @@
+package j09_innerClass;
+
+//** LocalInner Class
+//=> 메서드의 내부에 정의되는 InnerClass.
+//=> 메서드내에 정의되는 지역변수와 같다 (즉, 메서드내에서만 사용됨)
+//=> static Local_InnerClass는 허용 되지 않음
+// 단, 상수는 허용
+
+public class Ex04_LocalInner {
+
+	int a = 100;
+
+	Ex04_LocalInner() {
+		System.out.println("** Ex04_LocalInner default 생성자 **");
+	}
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class
