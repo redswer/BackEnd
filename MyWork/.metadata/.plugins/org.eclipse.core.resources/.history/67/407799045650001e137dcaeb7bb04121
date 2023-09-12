@@ -1,9 +1,0 @@
-package j08_AbsInterface;
-
-public class Ex05_StaticDefault {
-
-	public static void main(String[] args) {
-
-	}// main
-
-}// class

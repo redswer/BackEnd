@@ -1,0 +1,21 @@
+package j08_AbsInterface;
+
+//** 캡슐화(Encapsulation)
+//1. 은닉 (보호) : 접근 제어자를 이용
+//=> 외부로부터 데이터를 보호하고,
+// 내부적으로만 사용되는 부분은 감추어 준다 
+//=> 접근 제어자 : private < default <  protected < public
+
+//2. 단위 기능 모듈화
+//=> 세분화 되어있는 모듈을 하나의 기능으로 처리할 수 있도록 묶어준다.
+//=> 종합 감기약 처럼 
+//=> 세분화 되어있는 모듈을 사용하면서 호출 순서에 따른 오류 등
+// 발생가능한 논리적 오류를 예방하고, 생산성 및 유지보수 에 유리     
+
+public class Ex08_Encapsulation {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class
