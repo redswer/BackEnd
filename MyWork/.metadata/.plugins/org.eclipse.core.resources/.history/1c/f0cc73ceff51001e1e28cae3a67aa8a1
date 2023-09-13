@@ -1,0 +1,15 @@
+package j10_exception;
+
+//** Checked Exception 처리
+//1) 직접 처리
+//  => 해당 메서드 내에서 try ~ catch 블럭 처리
+//2) 위임 처리
+//  => Exception 처리를 상위 메서드로 위임(떠넘기기)
+
+public class Ex05_IOThrows {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

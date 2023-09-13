@@ -17,4 +17,6 @@
     <fullyQualifiedTypeName name="j07_classExtends.Ex00_Student"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="j08_AbsInterface.NewInter"/>
+    <fullyQualifiedTypeName name="j09_innerClass.OuterClass.Inner"/>
+    <fullyQualifiedTypeName name="j09_innerClass.Flyer"/>
 </qualifiedTypeNameHistroy>

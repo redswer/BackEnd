@@ -1,0 +1,9 @@
+package j10_exception;
+
+public class Ex07_throw {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

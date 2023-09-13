@@ -1,9 +1,0 @@
-package j05_classMethod;
-
-public class Ex06_OverLoading {
-
-	public static void main(String[] args) {
-
-	}
-
-}

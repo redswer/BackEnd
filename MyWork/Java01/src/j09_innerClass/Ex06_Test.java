@@ -6,28 +6,28 @@ package j09_innerClass;
 //실행 시켜 보세요 ~~ 
 
 interface Inter {
-	void inter1();
+	public abstract void inter1();
 
-	void inter2();
+	void inter2(); // => public abstract 생략 가능
 }
 
 public class Ex06_Test {
 
 	public static void main(String[] args) {
-		Inter in1 = new Inter() {
+		Inter in = new Inter() {
 			@Override
 			public void inter1() {
-				System.out.println("** 추상 메서드 1 **");
+				System.out.println("** main : 추상 메서드 1 **");
 			}
 
 			@Override
 			public void inter2() {
-				System.out.println("** 추상 메서드 2 **");
+				System.out.println("** main : 추상 메서드 2 **");
 			}
 		};
 
-		in1.inter1();
-		in1.inter2();
+		in.inter1();
+		in.inter2();
 
 	}// main
 

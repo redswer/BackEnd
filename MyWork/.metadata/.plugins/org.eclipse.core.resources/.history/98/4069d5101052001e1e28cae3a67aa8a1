@@ -1,0 +1,16 @@
+package j10_exception;
+
+//** 예외생성
+//=> throw : 예외(Exception) 생성하기 (던지다)
+//=> throws: 예외(Exception) 전달하기 (떠넘기기, 던지다)
+
+//=> extends Exception => Checked Exception 
+//=> extends RuntimeException => UnChecked 예외 (예외처리를 강제하지 않음)
+
+public class Ex07_throw {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

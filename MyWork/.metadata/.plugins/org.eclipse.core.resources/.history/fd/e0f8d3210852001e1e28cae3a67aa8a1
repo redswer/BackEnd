@@ -1,0 +1,18 @@
+package j10_exception;
+
+//** UnChecked Exception throws Test  
+//=> RunTimeException 하의 ~~ : UnChecked Exception 
+//=> java 의 컴파일러가 Exception 처리 확인하지 않음
+// 즉, 반드시 try ~ catch 구문 을 적용하지 않아도 됨.
+// 그러나 필요시엔 throws 로 처리 가능  
+//=> 주로 프로그래머의 실수로 발생 가능한 오류들
+//=> 상위의 메서드에서도 Exception 처리가 의무조항은 아님
+// 즉, 반드시 try ~ catch 구문 구현 하지 않아도 컴파일 오류 없음.
+
+public class Ex06_UNthrows {
+
+	public static void main(String[] args) {
+
+	}
+
+}
