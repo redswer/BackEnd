@@ -1,0 +1,39 @@
+package j10_exception;
+
+import java.util.Scanner;
+
+// ** AgeException 1 : Unchecked
+// => 즉, 컴파일러가 예외처리(try~catch~finally)를 확인하지 않음
+//=> 주로 프로그래머의 실수로 발생 가능한 오류들
+// => 나이의 값이 범위를 벗어나면 Exception 발생
+
+class AgeException extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+
+	AgeException() {
+		super("나이값이 범위를 벗어남");
+	}
+
+	AgeException(String message) {
+		super(message);
+	}
+}// AgeException
+
+public class Ex08_MyExceptionUn {
+	// ** 나이 입력받아 return 하는 메서드 만들기
+	// => 예외처리코드를 컴파일시에 확인하지않음
+	public static int readAge() {
+		int age = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("나이를 입력하세요");
+		age = sc.nextLine(Integer.parseInt());
+		sc.close();
+
+		return age;
+	}
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

@@ -19,4 +19,6 @@
     <fullyQualifiedTypeName name="j08_AbsInterface.NewInter"/>
     <fullyQualifiedTypeName name="j09_innerClass.OuterClass.Inner"/>
     <fullyQualifiedTypeName name="j09_innerClass.Flyer"/>
+    <fullyQualifiedTypeName name="a01_homework.Outer.Inner"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,10 @@
+package j11_APITest;
+
+public class Ex01_String01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

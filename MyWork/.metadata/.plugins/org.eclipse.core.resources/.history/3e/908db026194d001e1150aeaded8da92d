@@ -1,9 +1,0 @@
-package j07_classExtends;
-
-public class Ex00_Student {
-	private String no;
-	private String name;
-	private int score;
-
-	Ex00_Car car = new Ex00_Car(1000, 5000, "Blue");
-} // class

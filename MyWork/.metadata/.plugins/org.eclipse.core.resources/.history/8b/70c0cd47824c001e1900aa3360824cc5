@@ -1,9 +1,0 @@
-package j06_packageTest;
-
-public class Ex01_AccessTest {
-
-	public static void main(String[] args) {
-
-	} // main
-
-} // class

@@ -1,8 +1,0 @@
-package a01_homework;
-
-public class Mammal extends Animal {
-	
-	String cry;
-	String run;
-	F
-}
