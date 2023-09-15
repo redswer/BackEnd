@@ -21,4 +21,10 @@
     <fullyQualifiedTypeName name="j09_innerClass.Flyer"/>
     <fullyQualifiedTypeName name="a01_homework.Outer.Inner"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="j13_generic.Fruit"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="j07_classExtends.Ex00_Car"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

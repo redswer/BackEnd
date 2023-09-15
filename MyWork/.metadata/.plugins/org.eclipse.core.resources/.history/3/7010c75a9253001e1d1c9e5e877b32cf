@@ -1,0 +1,9 @@
+package j13_generic;
+
+public class Ex03_FruitBox {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

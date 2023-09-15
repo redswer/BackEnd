@@ -1,0 +1,14 @@
+package j14_Collection;
+
+import java.util.ArrayList;
+
+public class Ex01_ArrayList {
+
+	public static void main(String[] args) {
+		// 1. 정의
+
+		ArrayList list = new ArrayList();
+
+	}// main
+
+}// class

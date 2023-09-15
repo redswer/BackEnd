@@ -1,0 +1,13 @@
+package j13_generic;
+
+class Store {
+
+}// Store
+
+public class EX01_StoreTest {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class
