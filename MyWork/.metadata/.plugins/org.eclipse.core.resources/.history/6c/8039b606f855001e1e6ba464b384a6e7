@@ -1,0 +1,9 @@
+package j14_Collection;
+
+public class Ex07_HashMap {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

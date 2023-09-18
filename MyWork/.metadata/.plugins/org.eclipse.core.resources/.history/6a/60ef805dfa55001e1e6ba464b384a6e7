@@ -1,0 +1,43 @@
+package j14_Collection;
+
+import java.util.HashMap;
+import java.util.Map;
+
+//*** 해싱과 해시함수 => 정석 651p
+//해싱 => 해시 함수를 이용해서 데이터를 해시 테이블에 저장하고
+//     검색하는 기법
+
+//*** Map < Key, Value >
+//=> HashMap (Key 값의 중복을 허용하지 않고, 순서 유지를 보장받지 못한다.) 
+//=> TreeMap (Key 값의 중복을 허용하지 않고, 키값으로 오름차순 정렬이 된다.)
+//=> LinkedHashMap (Key 값의 중복을 허용하지 않고, 입력순서 유지를 보장받는다.)
+
+//*** HashMap : Key, Value 정보 지정
+//=> key 는 유일, Value 는 중복 허용 
+//=> null 값 허용 map.put(null, null) 또는 map.get(null) 가능
+
+public class Ex07_HashMap {
+
+	public static void main(String[] args) {
+		// 1. HashMap
+
+		Map<Integer, String> hMap = new HashMap<>();
+
+		hMap.put(1, "Java");
+		hMap.put(10, "Java"); // => key 값이 다르면 중복 허용
+		hMap.put(2, "Spring");
+		hMap.put(20, "SpringMVC");
+		hMap.put(new Integer(3), "MySQL"); // => 3 = new Integer(3)
+		hMap.put(4, "Mybatis");
+		hMap.put(4, "JPA"); // => 똑같은 key 값을 가지면 나중값이 적용됨(오버라이드 됨)
+		hMap.put(5, "그린");
+		hMap.put(null, "NULL");
+
+		System.out.println("** hMap => " + hMap);
+		System.out.println("** hMap.size() => " + hMap.size());
+
+		System.out.println("** hMap.get(20) => " + hMap.get(21));
+
+	}// main
+
+}// class
