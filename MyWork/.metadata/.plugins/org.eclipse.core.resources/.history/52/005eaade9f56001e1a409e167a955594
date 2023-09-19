@@ -1,0 +1,24 @@
+package j15_enum;
+
+interface ScaleI {
+	// ** 상수 정의
+	// => public static final (type) (Name) = (value);
+	// => 상수만 정의 가능하므로 생략
+
+	int DO = 0;
+	int RE = 1;
+	int ME = 2;
+	int FA = 3;
+	int SO = 4;
+	int RA = 5;
+	int SI = 6;
+
+}// interface
+
+public class Ex01_InterfaceConst {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

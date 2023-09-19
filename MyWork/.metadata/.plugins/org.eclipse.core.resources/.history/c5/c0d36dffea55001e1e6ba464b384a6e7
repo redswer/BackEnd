@@ -1,9 +1,0 @@
-package j14_Collection;
-
-public class Ex05_SetLotto {
-
-	public static void main(String[] args) {
-
-	}// main
-
-}// class

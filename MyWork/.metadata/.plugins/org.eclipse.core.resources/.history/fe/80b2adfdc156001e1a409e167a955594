@@ -1,0 +1,9 @@
+package j16_thread;
+
+public class Ex02_sleepRun {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class
