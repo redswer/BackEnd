@@ -1,0 +1,14 @@
+package j17_Lamda;
+
+@FunctionalInterface
+interface St {
+	String st(String st1, String st2);
+}
+
+public class Lm04_FunctionTest {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

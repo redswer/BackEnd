@@ -1,0 +1,15 @@
+package j17_Lamda;
+
+//** Predicate Test
+//=> boolean test(T t);
+//=> 전달된 인자를 대상으로 true, false 판단할 때
+//=> 제네릭 타입이므로 필요시 원하는 타입으로 정의히여 사용함. 
+
+public class Lm05_Predicate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

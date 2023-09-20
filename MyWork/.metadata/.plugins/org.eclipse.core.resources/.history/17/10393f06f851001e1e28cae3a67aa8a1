@@ -1,9 +1,0 @@
-package j10_exception;
-
-public class Ex04_MessageNaN {
-
-	public static void main(String[] args) {
-
-	}// main
-
-}// class

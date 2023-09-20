@@ -1,0 +1,19 @@
+package j17_Lamda;
+
+import java.util.function.Function;
+
+public class Lm04_FunctionTest {
+
+	public static void main(String[] args) {
+		// 1. String 의 길이 return
+
+		Function<String, Integer> f1 = s -> s.length();
+
+//		======================
+		// 2. Double return
+
+		Function<Double, Double> f2 = d -> d;
+
+	}// main
+
+}// class

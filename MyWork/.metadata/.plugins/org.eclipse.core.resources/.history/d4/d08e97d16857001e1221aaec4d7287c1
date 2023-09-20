@@ -1,0 +1,17 @@
+package j17_Lamda;
+
+//** @FunctionalInterface Test
+//=> 이를 적용한 인터페이스는 한개의 추상메소드만을 선언할수있다.
+//=> 그러나 static, default 선언이 붙은 메서드는 무관함.
+
+interface Value {
+	int num(int a, int b);
+}
+
+public class Lm03_Functional {
+
+	public static void main(String[] args) {
+
+	}// main
+
+}// class

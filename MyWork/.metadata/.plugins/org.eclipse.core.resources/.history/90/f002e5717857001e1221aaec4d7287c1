@@ -1,0 +1,29 @@
+package j17_Lamda;
+
+import java.util.function.Function;
+
+public class Lm04_FunctionTest {
+
+	public static void main(String[] args) {
+		// 1. String 의 길이 return
+
+		Function<String, Integer> f1 = s -> s.length();
+
+//		======================
+		// 2. Double return
+		// => Double 입력받아 inch 로, inch 를 cm 로 출력
+
+		Function<Double, Double> CtoI = d -> d * 0.393701;
+		Function<Double, Double> ItoC = d -> d * 2.54;
+
+//		=====================================
+		// 출력
+
+		System.out.println(f1.apply("12345"));
+
+		System.out.println(CtoI.apply(123.456));
+		System.out.println(ItoC.apply(123.456));
+
+	}// main
+
+}// class
