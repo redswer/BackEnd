@@ -1,0 +1,194 @@
+
+=======================================================================
+  Sub Query  
+=======================================================================
+=> 종류 : single row S , multi row S, multi column S, correlated(상관 관계) S
+
+** 과제 :  
+	1) 이름이 "안진혁" 인 학생과 같은 조원 출력하기
+	=> select * from student where jno = (이름이 "안진혁" 인 학생의 jno);
+
+	=> 이름이 "안진혁" 인 학생의 jno = (select jno from student where name = "안진혁");
+
+	select * from student
+	where jno = (select jno from student where name = "안진혁");
+
+	2) 조이름이 "오조" 조의  조원 sno, name, jno  출력하기
+	select sno, name, jno
+	from student
+	where jno = (select jno from jo where jname = "오조");
+
+	3-1) student 에서 "조현주" age 이상인 학생 출력하기
+	select * from student
+	where age >= (select age from student where name = "조현주");
+
+	3-2) student 에서 "조현주" age 미만인 학생 출력하기
+	select * from student
+	where age < (select age from student where name = "조현주");
+
+	3-3)  3-2 + 나이 내림차순(desc) 출력
+	select * from student
+	where age < (select age from student where name = "조현주")
+	order by age desc;
+
+=> subQuery -> query문이 query문을 포함
+	select  id, name, lev from mymember
+      		where lev=(select lev from mymember where id='banana')
+
+----------------------------------------------------------------------
+***  Join 기능을 Sub Query 로 처리하기
+----------------------------------------------------------------------
+
+=> jo 에서 조장 name 출력할때 join 사용
+	select j.jno, jname, captain, s.name
+	from jo2 j, student2 s
+	where j.captain=s.sno; 
+
+	select j.jno, jname, captain, s.name
+	from jo2 j  Left Outer Join student2 s On j.captain=s.sno; 
+
+=> Sub Query 적용 (join 과 비교)
+	select jno, jname, captain, 
+	( select name from student2 where sno=captain ) 조장이름 from jo2;
+	-> "조장이름" 부분이 출력되는 컬럼 명으로 들어감
+	-> 컬럼명이 동일한 경우 앨리어스 사용 가능(student2 s, jo2 j 등)
+
+=> 연습 : student 에서 sno, name, jno, jname 출력, 조 이름은 sub query 로 구현
+	select sno, name, jno, (select jname from jo j where j.jno = s.jno) 조이름
+	from student s;
+
+----------------------------------------------------------------------
+***  Join + Sub Query
+----------------------------------------------------------------------
+=> student2 에서 name="조현주" 인 학생의 age 보다 age 값이
+     작거나 같은 학생들의 sno, name, age, jno, jname 출력하기
+
+	select s.sno, s.name, s.age, s.jno, j.jname
+	from student2 s left outer join jo2 j on s.jno = j.jno
+	where age<= (select age from student2 where name = "조현주");
+
+========================================================= 
+=========================================================
+ *** 그룹함수 와 GROUP BY ~ Having
+---------------------------------------------------------------------------------------------
+
+=> 그룹함수: count(*) row 갯수  ,  sum(?)  ,  avg(?)  ,  max(?)  ,  min(?)
+=> GROUP BY : 그룹단위로 묶기
+=> Having: 그룹함수 를 대상으로하는 조건 지정
+=> where : table 에 존재하는 컬럼으로 조건지정
+
+=> 실습
+	=> 그룹함수
+	select count(*), sum(age), avg(age), max(age), min(age)
+	from student;
+     
+	-> 전체
+	count :  *  모든 record count , 컬럼명 해당컬럼에 값이 있는 record 만 count
+                       -> 예: count(jno)  조가 있는 학생만 count  
+	--------------------------------------------
+	=> 조별 통계 (row 갯수는 조의 갯수와 동일)
+	select jno, count(*), sum(age) , avg(age), max(age), min(age)
+	from student GROUP BY jno order by jno ;
+
+	-> select 에 name, age, jno 등 group by 에 사용하지 않은 컬럼 출력
+	select jno, count(*), sum(age) , avg(age), max(age), min(age)
+	from student GROUP BY jno order by jno ;
+	--------------------------------------------
+	=> 조별 통계 + 조건
+	-> 일반 컬럼을 이용한 조건문 (where)
+
+	>> jno 가 2 초과인 경우만 출력
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	where jno > 2 group by jno
+	order by jno;
+
+	>> age 가 28 이상인 경우만 출력
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	where age >= 28 group by jno
+	order by jno;
+	---------------------------------------------
+	-> 그룹 함수를 이용한 조건 (having)
+
+	>> 조별 인원이 4인 경우만 출력  ( count(*)=4 )
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	where count(*) >= 4
+	group by jno order by jno;
+	=> 오류
+	
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	group by jno
+	having count(*) >= 4
+	order by jno;
+	=> where 대신 having 을 이용해야 하고 having 은 group by 뒤에 위치해야 함
+
+	>> 일반 컬럼을 having 에 사용
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	group by jno
+	having age >= 28;
+	=> 일반 컬럼에 having 을 이용하면 오류
+
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	group by jno
+	having jno > 2;
+	=> group by 에 사용한 컬럼을 조건으로 하면 having 사용 가능
+
+	>> where + having : count(*) >= 3 , age >= 28 모두 적용
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student
+	where age >= 28
+	group by jno
+	having count(*) >= 3;
+
+	>> order by count(*) desc 추가
+	select jno, count(*), sum(age), avg(age), max(age), min(age)
+	from student 
+	where age>=22
+	Group By jno Having count(*)>=3 
+	order by count(*) desc;
+------------------------------------------------------------
+** 연습
+	=> 그룹 + 조건 : jno < 5  ( jno 는 having, where 모두 적용가능 ) 
+	select jno, count(*), sum(age) , avg(age), max(age), min(age) from student3 GROUP BY jno having jno < 5 ; // OK
+	select jno, count(*), sum(age) , avg(age), max(age), min(age) from student3 where jno < 5 GROUP BY jno ;  // OK
+	
+	=> having, where 모두 적용 하기
+	-> group + 조건1 sum(age)>110 + 조건2 age>25 인 학생들 대상
+	select jno, count(*), sum(age) , avg(age), max(age), min(age) from student3
+	where age > 25
+	GROUP BY jno
+	Having  sum(age)>110 ;  // OK
+
+** 주말 과제 ( Group + Join ) 
+	=> 조별 통계목록에 조 이름 출력하기
+	select jno, jname, count(*), sum(age), avg(age)
+	from student
+	group by jno;
+
+	-> jname 해결 1 (join)
+	select s.jno, j.jname, count(*), sum(age), avg(age)
+	from student s left outer join jo j on s.jno = j.jno
+	group by jno;
+
+	-> jname 해결 2 (sub query)
+	select s.jno, (select jname from jo j where s.jno = j.jno)jname, count(*), sum(age), avg(age)
+	from student s
+	group by jno;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*이클립스 단축키
+ ctrl + s, ctrl + shift + s : 저장관련
+ ctrl + F11 : 실행
+ ctrl + a : 현재 파일내용 전체 선택
+ ctrl + shift + f : 자동 들여쓰기
+ ctrl + space bar : 자동완성
+ ctrl + shift + c : 주석/주석해제
+ ctrl + z : 실행 취소
+ ctrl + y : 실행 취소한걸 다시 실행
+ ctrl + d : 현재 커서가 위치한 한줄을 삭제
+--------------------------------------------------------------------------------   
