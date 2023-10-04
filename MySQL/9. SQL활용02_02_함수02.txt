@@ -148,6 +148,11 @@
 	select sno, name, Replace(name, '이', 'Lee' )  from student
 	where name LIKE '%이%'  ; 
 
+=> student 에서 김** 출력하기 (replace 사용)
+	select sno, name, replace(name, substr(name, 2, (char_length(name) - 1)), '**')
+	from student;
+	-> 이름의 자리수와 상관없이 무조건 성 + ** 으로 출력됨
+
 -----------------------------------------------------	
 
 5) 문자4 : LPAD , RPAD  (왼쪽 오른쪽에 특정 문자를 원하는 자리수만큼 넣기)
