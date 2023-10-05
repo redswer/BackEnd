@@ -1,9 +1,0 @@
-package j14_Collection;
-
-public class Ex06_SetUnion {
-
-	public static void main(String[] args) {
-
-	}// main
-
-}// class
