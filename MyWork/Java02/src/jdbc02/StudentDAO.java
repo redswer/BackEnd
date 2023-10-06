@@ -28,10 +28,10 @@ public class StudentDAO {
 	private static String sql;
 
 	// ** selectList
-	public List<StudentVO> selectList() {
+	public List<StudentDTO> selectList() {
 		sql = "select * from student";
 
-		List<StudentVO> list = new ArrayList<StudentVO>();
+		List<StudentDTO> list = new ArrayList<StudentDTO>();
 		// => DB 에서 이미 중복확인이 되어 있으므로 Collection 중 중복 허용하고 순서를 유지하는 ArrayList 사용
 
 		try {
@@ -45,7 +45,7 @@ public class StudentDAO {
 					// list = rs; -> 서로 다른 형식의 객체이기 때문에 불가
 					// => 따라서 1 줄(row) 단위로 옮겨야 함
 					// => 이 때 1 row 는 각각 studentVO 타입
-					StudentVO vo = new StudentVO();
+					StudentDTO vo = new StudentDTO();
 
 					vo.setSno(rs.getInt(1));
 					vo.setName(rs.getString(2));
@@ -77,7 +77,7 @@ public class StudentDAO {
 //--------------------------------------------------
 	// ** selectOne
 
-	public StudentVO selectOne(StudentVO vo) {
+	public StudentDTO selectOne(StudentDTO vo) {
 		// => 매개변수로 int sno 대신 StudentVO 타입을 사용하면 밑에서 StudentVO 를 생성하지 않아도 됨
 		// => 따라서 매개변수로는 일반적으로 출력할 데이터의 타입을 사용
 		sql = "select * from student where sno = ?";
@@ -146,10 +146,129 @@ public class StudentDAO {
 		return list;
 	}
 
+//=================================================================================
 	// ** insert
+	// => name, age, jno, info 입력
 
+	public int insert(StudentDTO dto) {
+		sql = "insert into student(name, age, jno, info) values(?, ?, ?, ?)";
+
+		try {
+			pst = cn.prepareStatement(sql);
+
+			pst.setString(1, dto.getName());
+			pst.setInt(2, dto.getAge());
+			pst.setInt(3, dto.getJno());
+			pst.setString(4, dto.getInfo());
+
+			return pst.executeUpdate();
+			// => Ex01_StudentTest 클래스의 insert test 와 비교
+
+		} catch (Exception e) {
+			System.out.println("** insert Exception => " + e.toString());
+			return 0;
+		}
+	}
+
+//-----------------------
 	// ** update
+	// => info, birthday, point 수정
 
+	public int update(StudentDTO dto) {
+		sql = "update student set info = ?, point = ?, birthday = ? where sno = ?";
+
+		try {
+			pst = cn.prepareStatement(sql);
+
+			pst.setString(1, dto.getInfo());
+			pst.setDouble(2, dto.getPoint());
+			pst.setString(3, dto.getBirthday());
+			pst.setInt(4, dto.getSno());
+
+			return pst.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("** update Exception => " + e.toString());
+			return 0;
+		}
+	}
+//------------------------
 	// ** delete
+	// => sno 로 삭제
+
+	public int delete(StudentDTO dto) {
+		sql = "delete from student where sno = ?";
+
+		try {
+			pst = cn.prepareStatement(sql);
+
+			pst.setInt(1, dto.getSno());
+
+			return pst.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("** delete Exception => " + e.toString());
+			return 0;
+		}
+	}
+//	============================================================
+	// ** transaction
+	// => Connection 객체가 관리
+	// => 기본값은 AutoCommit true 임.
+	// => setAutoCommit(false) -> commit 또는 rollback
+	// => Test 사항
+	// - 동일자료를 2번 입력 -> 2번째 입력에서 p.key 중복 오류발생
+
+	// 1) Transaction 적용전
+	// => 동일자료를 2번 입력
+	// - 1번째는 입력완료 되고, 2번째 입력에서 p.key 중복 오류발생
+	// - Rollback 불가능
+	// - MySql Command 로 1번째 입력 확인 가능
+
+	// 2) Transaction 적용후
+	// => 동일자료를 2번 입력
+	// - 1번째는 입력완료 되고, 2번째 입력에서 p.key 중복 오류발생
+	// - Rollback 가능 -> 둘다 취소됨
+
+	public void transactionTest() {
+//		sql = "insert into student(sno, name, age, jno, info) values(25, '박길동', 20, 7, 'transaction test')";
+		// => 적용 전
+		
+		sql = "insert into student(sno, name, age, jno, info) values(26, '박길동', 20, 7, 'transaction test')";
+		// => 적용 후 (sno 값만 변경)
+
+		// 1) 적용 전
+//		try {
+//			pst = cn.prepareStatement(sql);
+//
+//			pst.executeUpdate();
+//			pst.executeUpdate();
+//			// => 동일한 데이터 2번 입력
+//			// => 첫 번째는 입력되고 두 번째는 p.key 중복 오류 발생
+//
+//		} catch (Exception e) {
+//			System.out.println("** transaction 1 Exception =>  **" + e.toString());
+//		}
+//		------------------
+		// 2) 적용 후
+
+		try {
+			cn.setAutoCommit(false);
+			// => command 에서의 start transaction 과 동일
+
+			pst = cn.prepareStatement(sql);
+			pst.executeUpdate();
+			pst.executeUpdate();
+
+			cn.commit();
+		} catch (Exception e) {
+			System.out.println("transaction 1 Exception =>  **" + e.toString());
+			try {
+				cn.rollback();
+				System.out.println("transaction -> rollback 성공");
+			} catch (Exception e1) {
+				System.out.println("transaction 2 Exception => " + e1.toString());
+			}
+		}
+
+	}
 
 }// class

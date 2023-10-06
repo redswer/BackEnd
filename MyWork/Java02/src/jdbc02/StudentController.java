@@ -12,14 +12,14 @@ public class StudentController {
 	StudentService service = new StudentService();
 
 //	----------------------------------------------
-	// 1. selectList
+	// 1. select
 
 	// ** View 역할의 메서드
-	public void printList(List<StudentVO> list) {
+	public void printList(List<StudentDTO> list) {
 		System.out.println("** Student List **");
 
 		if (list != null) {
-			for (StudentVO s : list) {
+			for (StudentDTO s : list) {
 				System.out.println(s);
 			}
 
@@ -31,7 +31,7 @@ public class StudentController {
 	// ** selectOne
 
 	// ** View 역할의 메서드
-	public void printDetail(StudentVO vo) {
+	public void printDetail(StudentDTO vo) {
 		System.out.println("** SelectOne **");
 
 		if (vo != null) {
@@ -55,7 +55,7 @@ public class StudentController {
 		}
 	}
 
-//-------------------------------------------
+//============================================================
 	public static void main(String[] args) {
 
 		// ** StudentController 인스턴스 생성
@@ -69,7 +69,7 @@ public class StudentController {
 //-------------------------------------------
 		// ** selectOne 출력
 
-		StudentVO vo = new StudentVO();
+		StudentDTO vo = new StudentDTO();
 		vo.setSno(10);
 
 		controller.printDetail(controller.service.selectOne(vo));
@@ -79,6 +79,56 @@ public class StudentController {
 		// ** groupList 출력
 
 		controller.printGroup(controller.service.groupList());
+
+//		=======================================================================
+		// ** insert
+
+		StudentDTO dto = new StudentDTO();
+
+		dto.setName("바나나");
+		dto.setAge(30);
+		dto.setJno(7);
+		dto.setInfo("insert test");
+
+		if (controller.service.insert(dto) > 0) {
+			System.out.println("** insert 성공 **");
+		} else {
+			System.out.println("** insert 실패 **");
+		}
+
+//		------------------------
+		// ** update
+
+		dto.setSno(25);
+		dto.setInfo("수정 테스트");
+		dto.setPoint(123.456);
+		dto.setBirthday("2000-09-09");
+
+		if (controller.service.update(dto) > 0) {
+			System.out.println("** update 성공 **");
+		} else {
+			System.out.println("** update 실패 **");
+		}
+
+//		------------------------
+		// ** delete
+
+		dto.setSno(25);
+
+		if (controller.service.delete(dto) > 0) {
+			System.out.println("** delete 성공 **");
+		} else {
+			System.out.println("** delete 실패 **");
+		}
+//		================================================
+		// ** transaction test
+		// => command 에서 start transaction; -> rollback; / commit; 으로 실행됨
+		// => JDBC 에서는 Connection 객체가 관리 (default : autoCommit true)
+		// => 적용 전/후 비교
+		
+		controller.service.transactionTest();
+		// => 정확한 test 위해 위의 select, insert, update, delete 주석 처리 하고 실행
+		
 
 	}// main
 
