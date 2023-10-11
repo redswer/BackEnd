@@ -28,4 +28,10 @@
 		<url-pattern>/77</url-pattern>
 	</servlet-mapping>
 
+	<!-- ** Session Time 설정 ** -->
+	<!-- => 분 단위 / 0 또는 음수를 사용하면 무한시간 -->
+	<session-config>
+		<session-timeout>0</session-timeout>
+	</session-config>
+
 </web-app>

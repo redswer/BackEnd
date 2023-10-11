@@ -1,4 +1,4 @@
-package sevlet02;
+package servlet02_form;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,6 +28,7 @@ public class Ex03_CheckBox extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String[] gift = request.getParameterValues("gift");
+		// => 여러 개를 선택할 경우 배열에 담아 getParameterValues 를 사용
 
 		// 2) Service 처리
 		// 3) 결과( View ) 처리

@@ -39,6 +39,8 @@ public class Ex03_GetPost extends HttpServlet {
 		// - Tomcat(WAS) 은 Get 방식요청에서는 "UTF-8" 을 default 로 적용함
 		// ( html 문서에서 "UTF-8" 작성되었고 , Get 방식으로 전송되면 생략가능
 		// 단, post 방식에서는 반드시 처리해야함 )
+		request.setCharacterEncoding("UTF-8");
+		// => post 방식에서는 반드시 한글처리 해야 함
 		
 		// => Parameter 로 전달된 Data 처리
 		// => request.getParameter("...") 등등
