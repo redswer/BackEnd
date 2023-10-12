@@ -16,7 +16,6 @@
 
 	<!-- ** url 매핑 -->
 	<!-- 서블릿 정의 -> 매핑 동일 클래스라 하더라도 매핑 네임 중복은 허용하지 않음 -->
-
 	<servlet>
 		<servlet-name>helloServlet</servlet-name>
 		<servlet-class>servlet01.Ex01_HelloServlet</servlet-class>
@@ -33,5 +32,25 @@
 	<session-config>
 		<session-timeout>0</session-timeout>
 	</session-config>
+	
+	<!-- ** Exception Test 1 : 응답상태 코드 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/jsp02_Exception/ex02_404Page.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/jsp02_Exception/ex02_500Page.jsp</location>
+	</error-page>
+	
+	<!-- Exception Test 2 : Exception Type -->
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/jsp02_Exception/ex03_Null.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>/jsp02_Exception/ex03_Arith.jsp</location>
+	</error-page>
 
 </web-app>
