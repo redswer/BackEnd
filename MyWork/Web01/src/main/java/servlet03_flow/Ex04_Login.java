@@ -78,6 +78,9 @@ public class Ex04_Login extends HttpServlet {
 		// => 로그아웃 할 때까지 남아있어야 하기 때문에 session 에 담아야 함
 		// => 따라서 로그인 정보를 session 에 보관해햐 함
 		
+		request.getSession().setAttribute("loginID", sno);
+		// => mvc2_sDetail 을 위해 id (sno) 보관
+		
 //		-------------------------------
 		// 3. View (Response)
 		// => 성공 -> index.jsp 로

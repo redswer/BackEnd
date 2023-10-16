@@ -34,14 +34,14 @@
 	</session-config>
 	
 	<!-- ** Exception Test 1 : 응답상태 코드 -->
-	<error-page>
+<!-- 	<error-page>
 		<error-code>404</error-code>
 		<location>/jsp02_Exception/ex02_404Page.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
 		<location>/jsp02_Exception/ex02_500Page.jsp</location>
-	</error-page>
+	</error-page> -->
 	
 	<!-- Exception Test 2 : Exception Type -->
 	<error-page>

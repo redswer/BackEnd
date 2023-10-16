@@ -22,7 +22,7 @@
 	<b> 결과 => 
 	<c:forEach var="i" begin="1" end="10" step="1" varStatus="vs">
 		${i}
-		${vs.last ? "" : ","}
+		${vs.last ? "" : ", "}
 	</c:forEach>
 	</b>
 	<hr width="50%" align="left">
