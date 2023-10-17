@@ -1,0 +1,43 @@
+** member Table Create
+// => Student 의 column 과 data 활용
+
+// ** 구조
+	private String id; // => 추가, primary_key
+	private String password; / => 추가, not null
+	private String name;
+	private int age;
+	private int jno;
+	private String info;
+	private double point;
+	private String birthday;
+	private String rid; // => 추가, 추천인
+	// => 제약조건 : primary_key, not null
+	
+create table member as select * from student;
+alter table member rename column sno to id;
+alter table member modify id varchar(10) primary key;
+alter table member modify name varchar(10) null;
+alter table member add password varchar(10) default '12345!' not null;
+alter table member add rid varchar(10);
+alter table member modify column password varchar(10) not null after id;
+
+update member set id='csh98' where id='20';
+update member set id='haerim' where id='5';
+update member set id='silver' where id='16';
+update member set id = "hyejin11" where name = "신혜진";
+update member set id='sora' where id='1';
+update member set id='ajh97' where id='10';
+update member set id='ruhappy' where id='12';
+update member set id="suehyun" where id='8';
+update member set id="ezirenge" where id='2';
+update member set id='kongbori' where id='19';
+update member set id='wonee512' where id='14';
+update member set id='memoire' where id='18';
+update member set id='jekichan' where name='이성룡';
+update member set id = "nameground" where id ='3';
+update member set id='jeseung' where id='13';
+update member set id="ysh" where id='11';
+update member set id='papipu' where id='15';
+update member set id='bae87' where id='7';
+update member set id='wri' where id='6';
+update member set id = "zzaeminy" where id = "4";
