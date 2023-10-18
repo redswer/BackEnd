@@ -33,12 +33,12 @@ public class MVC2_mJoin extends HttpServlet {
 		int jno = Integer.parseInt(request.getParameter("jno"));		
 		String info = request.getParameter("info");
 		Double point = Double.parseDouble(request.getParameter("point"));
-		String birthday = request.getParameter("birtyday");
+		String birthday = request.getParameter("birthday");
 		String rid = request.getParameter("rid");
 		
 		MemberService service = new MemberService();
 		MemberDTO dto = new MemberDTO();
-		
+				
 		dto.setId(id);
 		dto.setPassword(password);
 		dto.setName(name);
@@ -52,12 +52,12 @@ public class MVC2_mJoin extends HttpServlet {
 		// 2. 결과처리
 		// => 성공 : 로그인 유도 (로그인 Form 으로)
 		// => 실패 : 재가입 유도 (Join Form 으로)
-		String uri = "servletTestForm/flowEx04_LoginForm.jsp";
+		String uri = "member/loginForm.jsp";
 		
 		if (service.insert(dto) > 0 ) {
 			request.setAttribute("message", "회원가입 성공, 로그인 후 이용하세요");
 		} else {
-			uri = "jsp99_mvcTest/mvc2_sJoin.jsp";
+			uri = "member/memberJoin.jsp";
 			request.setAttribute("message", "회원가입 실패, 다시 입력하세요");
 		}
 		request.getRequestDispatcher(uri).forward(request, response);

@@ -22,7 +22,7 @@ public class MVC2_mDetail extends HttpServlet {
 		// 1. 요청 분석 & service
 		// => 검색 대상의 id(sno) 필요함 -> 로그인 시 보관 (로그인 페이지 코드에 추가)
 		// => session 에서 getAttribute		
-		String id = (String) request.getSession().getAttribute("id");
+		String id = (String) request.getSession().getAttribute("loginID");
 		
 		MemberService service = new MemberService();
 		MemberDTO dto = new MemberDTO();

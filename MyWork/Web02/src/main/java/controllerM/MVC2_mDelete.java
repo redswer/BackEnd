@@ -21,9 +21,10 @@ public class MVC2_mDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String id = request.getParameter("id");
 		MemberService service = new MemberService();
 		MemberDTO dto = new MemberDTO();
+		
+		String id = request.getParameter("id");
 		dto.setId(id);
 
 		if (service.delete(dto) > 0) {

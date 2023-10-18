@@ -15,7 +15,7 @@
 		<td><input type="text" id="id" name="id"></td>
 	</tr>
 	<tr height="30"><td><label for="password">Password</label></td>
-		<td><input type="text" id="password" name="password"></td>
+		<td><input type="password" id="password" name="password"></td>
 	</tr>
 	<tr height="30"><td></td>
 		<td><input type="submit" value="로그인">&nbsp;&nbsp;
@@ -24,10 +24,11 @@
 	</tr>
 </table>
 </form>
-<hr>
-
 <c:if test="${!empty requestScope.message}">
+	<br>
 	<c:out value="${requestScope.message}"/>
 </c:if>
+<hr>
+&nbsp; <a href="/Web02/index.jsp">Home</a>
 </body>
 </html>

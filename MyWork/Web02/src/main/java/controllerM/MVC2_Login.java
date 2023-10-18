@@ -38,7 +38,7 @@ public class MVC2_Login extends HttpServlet {
 
 		if (dto != null && dto.getPassword().equals(password)) {
 			request.getSession().setAttribute("loginName", dto.getName());
-			request.getSession().setAttribute("id", id);
+			request.getSession().setAttribute("loginID", id);
 		} else {
 			request.setAttribute("message", "로그인 실패");
 			uri = "member/loginForm.jsp";

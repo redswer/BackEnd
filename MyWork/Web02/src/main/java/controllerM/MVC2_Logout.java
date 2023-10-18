@@ -27,10 +27,4 @@ public class MVC2_Logout extends HttpServlet {
 		// 3. View
 		response.sendRedirect(uri);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }
