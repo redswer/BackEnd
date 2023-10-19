@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.xinclude.XIncludeNamespaceSupport"/>
     <fullyQualifiedTypeName name="java.util.function.ToIntFunction"/>
     <fullyQualifiedTypeName name="j05_classMethod.Ex10_CallByRefLotto"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="model.MemberDAO"/>
     <fullyQualifiedTypeName name="service.MemberService"/>
     <fullyQualifiedTypeName name="domain.MemberDTO"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 </qualifiedTypeNameHistroy>
