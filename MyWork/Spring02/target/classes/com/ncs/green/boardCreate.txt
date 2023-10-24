@@ -1,0 +1,33 @@
+*** Board 실습 ***
+1. Board Table 생성 & 기본자료 입력
+
+drop table board;
+
+// ** table 생성
+create  table board (    
+seq int(5) primary key AUTO_Increment,
+id varchar(10) not null,
+title varchar(200) not null,
+content Text(2000),
+regdate  datetime DEFAULT CURRENT_TIMESTAMP,
+cnt int default 0
+);
+
+// ** data 입력 (5개 이상 입력)
+insert into board(id, title, content) values('apple', '사과는', '맛있다. 맛있으면 바나나');
+insert into board(id, title, content) values('banana', '바나나는', '길다. 길면 기차');
+insert into board(id, title, content) values('train', '기차는', '빠르다. 빠르면 비행기');
+insert into board(id, title, content) values('airplane', '비행기는', '높다. 높으면 백두산');
+insert into board(id, title, content) values('admin' ,'Spring?', '?????????');
+insert into board(id, title, content) values('apple2', '사과는', '맛있다. 맛있으면 바나나');
+insert into board(id, title, content) values('banana2', '바나나는', '길다. 길면 기차');
+insert into board(id, title, content) values('train2', '기차는', '빠르다. 빠르면 비행기');
+insert into board(id, title, content) values('airplane2', '비행기는', '높다. 높으면 백두산');
+insert into board(id, title, content) values('admin2' ,'Spring?', '?????????');
+
+// ** spring02 에서 구현
+// => JAVA : BoardDTO, BoardDAO, BoardService, BoardController
+// => VIEW : boardList, boardDetail, boardInsert, boardUpdate, boardDelete 등
+
+// ** spring02 에서 구현 2
+// => 댓글 달기, 페이징 기능 구현
