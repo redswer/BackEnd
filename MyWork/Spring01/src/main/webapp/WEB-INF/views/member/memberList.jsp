@@ -32,7 +32,7 @@
 		<c:if test="${!empty requestScope.banana}">
 			<c:forEach var="m" items="${requestScope.banana}">
 				<tr>
-					<td>${m.id}</td>
+					<td><a href="mdetailsp?id=${m.id}">${m.id}</a></td>
 					<td>${m.password}</td>
 					<td>${m.name}</td>
 					<td>${m.age}</td>
