@@ -1,47 +1,27 @@
 package service;
 
-// ** controller 에서의 데이터 변경이 dao 와 vo 에서도 적용되는 것을 방지하기 위해 사이에 service 를 둠
-
-//** insert,update,delete test 를 위해 StudentVO 를 MemberDTO 로 변경
-
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import domain.MemberDTO;
-import model.MemberDAO;
 
-@Service
-public class MemberService {
-	// ** 전역변수 정의
-	@Autowired
-	MemberDAO dao;
-//	= MemberDAO dao = new MemberDAO();
+public interface MemberService {
 
+	// ** selectJno
+	List<MemberDTO> selectJno(int jno);
+	
 	// ** selectList
-	public List<MemberDTO> selectList() {
-		return dao.selectList();
-	}
+	List<MemberDTO> selectList();
 
 	// ** selectOne
-	public MemberDTO selectOne(MemberDTO vo) {
-		return dao.selectOne(vo);
-	}
-
+	MemberDTO selectOne(MemberDTO vo);
+	
 	// ** insert
-	public int insert(MemberDTO dto) {
-		return dao.insert(dto);
-	}
+	int insert(MemberDTO dto);
 
 	// ** update
-	public int update(MemberDTO dto) {
-		return dao.update(dto);
-	}
+	int update(MemberDTO dto);
 
 	// ** delete
-	public int delete(MemberDTO dto) {
-		return dao.delete(dto);
-	}
+	int delete(MemberDTO dto);
 
-}// class
+}

@@ -31,3 +31,23 @@ insert into board(id, title, content) values('admin2' ,'Spring?', '?????????');
 
 // ** spring02 에서 구현 2
 // => 댓글 달기, 페이징 기능 구현
+
+// ** board table 에 컬럼 추가
+	-> root : 원글 표시
+	-> step : 댓글의 출력순서 번호
+	-> indent : 댓글 레벨
+
+   alter table board add root int(5)  default 0 ; 
+   alter table board add step int(5) default 0 ;
+   alter table board add indent int(3) default 0 ;  
+   
+   -> root 값에 자신의 seq 넣기
+   update board set root=seq ; 
+   
+   -> 부분 조회 & 댓글 포함 List 출력순서 
+   select seq, title, id, root, step, indent from board order by root desc, step asc;
+   
+=> Application 에 replyInsert 추가
+   -> Java: BoardDTO, BoardDAO, BoardService, BoardServiceImpl, BoardController
+   -> Jsp: boardDetail(메뉴추가), replyInsert, boardList 
+

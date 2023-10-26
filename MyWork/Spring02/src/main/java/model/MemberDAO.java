@@ -20,6 +20,45 @@ public class MemberDAO {
 	private static ResultSet rs;
 	private static String sql;
 
+	public List<MemberDTO> selectJno(int jno) {
+		sql = "select * from member where jno = ?";
+		
+		List<MemberDTO> list = new ArrayList<MemberDTO>();
+		
+		try {
+			pst = cn.prepareStatement(sql);
+			pst.setInt(1, jno);
+			rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setId(rs.getString(1));
+					dto.setPassword(rs.getString(2));
+					dto.setName(rs.getString(3));
+					dto.setAge(rs.getInt(4));
+					dto.setJno(rs.getInt(5));
+					dto.setInfo(rs.getString(6));
+					dto.setPoint(rs.getDouble(7));
+					dto.setBirthday(rs.getString(8));
+					dto.setRid(rs.getString(9));
+					
+					list.add(dto);
+					
+				} while (rs.next());
+				
+			} else {
+				list = null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("** selectList Exception => " + e.toString());
+			list = null;
+		}
+		return list;
+	}
+	
 	public List<MemberDTO> selectList() {
 		sql = "select * from member";
 

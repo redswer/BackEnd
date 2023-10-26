@@ -44,5 +44,11 @@
 &nbsp;<a href="member/memberList">mList</a>
 
 &nbsp;<a href="member/log4jtest">롬복 log4j</a>
+<br>
+<hr>
+&nbsp;<a href="board/boardList">bList</a>
+<br>
+<hr>
+&nbsp;<a href="jo/joList">조 List</a>
 </body>
 </html>
