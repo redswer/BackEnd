@@ -19,14 +19,14 @@ import lombok.Data;
 // => 정의된 모든 필드에 대한 
 // Getter, Setter, ToString 과 같은 모든 요소를 한번에 만들어주는 애너테이션.
 public class MemberDTO {
-	String id;
-	String password;
-	String name;
-	int age;
-	int jno;
-	String info;
-	Double point;
-	String birthday;
-	String rid;
-
+	private String id;
+	private String password;
+	private String name;
+	private int age;
+	private int jno;
+	private String info;
+	private Double point;
+	private String birthday;
+	private String rid;
+	private String uploadfile;
 }// class

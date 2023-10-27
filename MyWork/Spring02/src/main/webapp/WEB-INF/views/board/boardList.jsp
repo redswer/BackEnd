@@ -41,8 +41,8 @@
 										<span>&nbsp;&nbsp;</span>
 									</c:forEach>
 									<span style="color:blue;">re..)</span>
-							</c:if>
-						${m.title}
+								</c:if>
+								${m.title}
 							</a>
 						</td>
 					</c:if>
@@ -54,7 +54,7 @@
 					<td>${m.regdate}</td>
 					<td>${m.cnt}</td>
 					<c:if test="${sessionScope.loginID == 'admin'}">
-						<td><a href="bdelete?seq=${m.seq}">삭제</a></td>
+						<td><a href="bdelete?seq=${m.seq}&root=${m.root}">삭제</a></td>
 					</c:if>
 				</tr>
 			</c:forEach>

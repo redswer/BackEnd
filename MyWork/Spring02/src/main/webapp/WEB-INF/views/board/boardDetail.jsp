@@ -60,7 +60,7 @@
 	<!-- 로그인 id 와 글쓴이의 id 가 동일하면 수정이 가능하도록 -->
 	<c:if test="${sessionScope.loginID == requestScope.apple.id}">
 		<a href="bdetail?jCode=U&seq=${requestScope.apple.seq}">수정</a>&nbsp;&nbsp;
-	<a href="bdelete?seq=${requestScope.apple.seq}">삭제</a>
+	<a href="bdelete?seq=${requestScope.apple.seq}&root=${requestScope.apple.root}">삭제</a>
 	</c:if>
 	<hr>
 	&nbsp;

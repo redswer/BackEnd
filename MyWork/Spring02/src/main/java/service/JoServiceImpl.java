@@ -10,43 +10,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.JoDTO;
-import model.JoDAO;
+import mapperInterface.JoMapper;
 
 @Service
 public class JoServiceImpl implements JoService {
 	// ** 전역변수 정의
 	@Autowired
-	JoDAO dao;
+	JoMapper mapper;
 //	= JoDAO dao = new JoDAO();
 
 	// ** selectList
 	@Override
 	public List<JoDTO> selectList() {
-		return dao.selectList();
+		return mapper.selectList();
 	}
 
 	// ** selectOne
 	@Override
 	public JoDTO selectOne(JoDTO vo) {
-		return dao.selectOne(vo);
+		return mapper.selectOne(vo);
 	}
 
 	// ** insert
 	@Override
 	public int insert(JoDTO dto) {
-		return dao.insert(dto);
+		return mapper.insert(dto);
 	}
 
 	// ** update
 	@Override
 	public int update(JoDTO dto) {
-		return dao.update(dto);
+		return mapper.update(dto);
 	}
 
 	// ** delete
 	@Override
 	public int delete(JoDTO dto) {
-		return dao.delete(dto);
+		return mapper.delete(dto);
 	}
 
 }// class

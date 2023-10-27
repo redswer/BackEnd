@@ -25,22 +25,19 @@
 				<th bgcolor="aqua">Content</th>
 				<td><textarea rows="5" cols="50" name="content"></textarea></td>
 			</tr>
-			<!-- 부모 글의 root, step, indent 가 있어야 댓글 등록 가능
-				 => 그러므로 이 값들을 hidden 으로 보관했다가 서버로 전달 되도록 함
-			 -->
-			<tr height="40">
-				<td>
-					<input type="hidden" name="root" value="${boardDTO.root}" />
-					<input type="hidden" name="step" value="${boardDTO.step}" />
-					<input type="hidden" name="indent" value="${boardDTO.indent}" />
-				</td>
-			</tr>
+
 			<tr height="40">
 				<td colspan="2" style="text-align: center;"><input
 					type="submit" value="등록" />&nbsp;&nbsp;&nbsp; <input type="reset"
 					value="취소" /></td>
 			</tr>
 		</table>
+		<!-- 부모 글의 root, step, indent 가 있어야 댓글 등록 가능
+			=> 그러므로 이 값들을 hidden 으로 보관했다가 서버로 전달 되도록 함
+		 -->
+		<input type="hidden" name="root" value="${boardDTO.root}" />
+		<input type="hidden" name="step" value="${boardDTO.step}" />
+		<input type="hidden" name="indent" value="${boardDTO.indent}" />
 	</form>
 	<hr>
 	<c:if test="${!empty requestScope.message}">

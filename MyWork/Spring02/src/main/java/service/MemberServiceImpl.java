@@ -10,49 +10,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.MemberDTO;
-import model.MemberDAO;
+import mapperInterface.MemberMapper;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 	// ** 전역변수 정의
 	@Autowired
-	MemberDAO dao;
+	MemberMapper mapper;
 //	= MemberDAO dao = new MemberDAO();
 
 	// ** selectJno
 	@Override
 	public List<MemberDTO> selectJno(int jno) {
-		return dao.selectJno(jno);
+		return mapper.selectJno(jno);
 	}
 	
 	// ** selectList
 	@Override
 	public List<MemberDTO> selectList() {
-		return dao.selectList();
+		return mapper.selectList();
 	}
 
 	// ** selectOne
 	@Override
 	public MemberDTO selectOne(MemberDTO vo) {
-		return dao.selectOne(vo);
+		return mapper.selectOne(vo);
 	}
 	
 	// ** insert
 	@Override
 	public int insert(MemberDTO dto) {
-		return dao.insert(dto);
+		return mapper.insert(dto);
 	}
 
 	// ** update
 	@Override
 	public int update(MemberDTO dto) {
-		return dao.update(dto);
+		return mapper.update(dto);
 	}
 
 	// ** delete
 	@Override
 	public int delete(MemberDTO dto) {
-		return dao.delete(dto);
+		return mapper.delete(dto);
 	}
 
 }// class

@@ -14,6 +14,7 @@
 <hr>
 
 <c:if test="${!empty sessionScope.loginID}">
+	<img alt="MyImage" src="/green/${sessionScope.img}" border="1" width="50" height="50">
 	${sessionScope.loginName}님 안녕하세요
 	<br>
 </c:if>

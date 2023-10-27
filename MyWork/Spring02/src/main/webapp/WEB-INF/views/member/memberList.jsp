@@ -13,7 +13,7 @@
 	<c:if test="${!empty requestScope.message}">
 		${message}
 	</c:if>
-	<table border="1" style="width: 90%;">
+	<table border="1" style="width: 100%;">
 		<tr bgcolor="Lime">
 			<th>id</th>
 			<th>password</th>
@@ -24,6 +24,7 @@
 			<th>point</th>
 			<th>birthday</th>
 			<th>rid</th>
+			<th>image</th>
 			<!-- 관리자 기능으로 추가 -->
 			<c:if test="${sessionScope.loginID == 'admin'}">
 			<th>Delete</th>
@@ -41,6 +42,7 @@
 					<td>${m.point}</td>
 					<td>${m.birthday}</td>
 					<td>${m.rid}</td>
+					<td><img alt="MyImage" src="/green/${m.uploadfile}" width=70 height="70"></td>
 					
 					<c:if test="${sessionScope.loginID == 'admin'}">
 						<td><a href="mdelete?id=${m.id}">삭제</a></td>

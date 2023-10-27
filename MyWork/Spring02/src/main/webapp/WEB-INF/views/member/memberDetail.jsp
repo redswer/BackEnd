@@ -12,6 +12,10 @@
 	<table border="1">
 		<c:if test="${!empty requestScope.apple}">
 			<tr height="40">
+				<th bgcolor="pink">Image</th>
+				<td><img alt="MyImage" src="/green/${requestScope.apple.uploadfile}" width="80" height="80"></td>
+			</tr>
+			<tr height="40">
 				<th bgcolor="pink">ID</th>
 				<td>${requestScope.apple.id}</td>
 			</tr>

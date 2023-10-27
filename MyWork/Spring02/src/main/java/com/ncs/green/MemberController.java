@@ -164,6 +164,7 @@ public class MemberController {
 		dto = service.selectOne(dto);
 		if (dto != null && dto.getPassword().equals(password)) {
 			session.setAttribute("loginID", dto.getId());
+			session.setAttribute("img", dto.getUploadfile());
 			session.setAttribute("loginName", dto.getName());
 		} else {
 			uri = "member/loginForm";
