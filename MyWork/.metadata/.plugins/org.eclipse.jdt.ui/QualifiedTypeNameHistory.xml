@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.sun.source.tree.DoWhileLoopTree"/>
-    <fullyQualifiedTypeName name="jdk.nashorn.api.tree.DoWhileLoopTree"/>
-    <fullyQualifiedTypeName name="jdbc01.DBConnection"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Enumeration"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -52,7 +44,6 @@
     <fullyQualifiedTypeName name="domain.JoDTO"/>
     <fullyQualifiedTypeName name="service.MemberService"/>
     <fullyQualifiedTypeName name="domain.MemberDTO"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="domain.BoardDTO"/>
     <fullyQualifiedTypeName name="org.springframework.web.context.annotation.RequestScope"/>
@@ -60,4 +51,13 @@
     <fullyQualifiedTypeName name="mapperInterface.BoardMapper"/>
     <fullyQualifiedTypeName name="mapperInterface.MemberMapper"/>
     <fullyQualifiedTypeName name="mapperInterface.JoMapper"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
+    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
 </qualifiedTypeNameHistroy>

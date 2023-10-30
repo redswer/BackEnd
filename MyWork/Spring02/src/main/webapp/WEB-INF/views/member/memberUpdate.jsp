@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>** Spring_MVC2 Member Update **</title>
+<script src="/green/resources/myLib/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<h2>** Spring_MVC2 Member Update **</h2>
-	<form action="mupdate" method="post">
+	<form action="mupdate" method="post" enctype="multipart/form-data">
 		<table border="1">
 			<c:if test="${!empty requestScope.apple}">
 				<tr height="40">
@@ -21,7 +22,7 @@
 					-> readOnly: 서버로 전송됨
 					-> disabled: 서버로 전송되지 않음
 				 -->
-<%-- 				<tr height="40">
+				<%-- 				<tr height="40">
 					<th bgcolor="khaki">Password</th>
 					<td><input type="password" name="password"
 						placeholder="영어+슷자+특수문자" value="${requestScope.apple.password}"
@@ -43,12 +44,24 @@
 				<tr height="40">
 					<th bgcolor="khaki">Jno</th>
 					<td><select name="jno">
-							<option value="1" ${requestScope.apple.jno == 1 ? "selected" : ""}>1조 (119조)</option>
-							<option value="2" ${requestScope.apple.jno == 2 ? "selected" : ""}>2조 (여우조)</option>
-							<option value="3" ${requestScope.apple.jno == 3 ? "selected" : ""}>3조 (i4조)</option>
-							<option value="4" ${requestScope.apple.jno == 4 ? "selected" : ""}>4조 (최고조)</option>
-							<option value="5" ${requestScope.apple.jno == 5 ? "selected" : ""}>5조 (오조)</option>
-							<option value="7" ${requestScope.apple.jno == 7 ? "selected" : ""}>7조 (관리팀)</option>
+							<option value="1"
+								${requestScope.apple.jno == 1 ? "selected" : ""}>1조
+								(119조)</option>
+							<option value="2"
+								${requestScope.apple.jno == 2 ? "selected" : ""}>2조
+								(여우조)</option>
+							<option value="3"
+								${requestScope.apple.jno == 3 ? "selected" : ""}>3조
+								(i4조)</option>
+							<option value="4"
+								${requestScope.apple.jno == 4 ? "selected" : ""}>4조
+								(최고조)</option>
+							<option value="5"
+								${requestScope.apple.jno == 5 ? "selected" : ""}>5조
+								(오조)</option>
+							<option value="7"
+								${requestScope.apple.jno == 7 ? "selected" : ""}>7조
+								(관리팀)</option>
 					</select></td>
 				</tr>
 				<tr height="40">
@@ -71,6 +84,34 @@
 					<td><input type="text" name="rid" placeholder="추천인"
 						value="${requestScope.apple.rid}" size="20" /></td>
 				</tr>
+				<!-- Image Update 추가 
+         => form Tag : method, enctype 확인
+         => new Image 를 선택하는 경우 -> uploadfilef 사용
+         => new Image 를 선택하지않는 경우 
+            -> 본래 Image 를 사용 -> uploadfile 값이 필요함
+   -->
+				<tr height="40">
+					<th bgcolor="khaki">MyImage</th>
+					<td>
+						<img alt="MyImage" width="80" height="100" class="select_img"
+						src="/green/${requestScope.apple.uploadfile}">
+						<input type="hidden"
+						name="uploadfile" value="${requestScope.apple.uploadfile}">
+						<input type="file" name="uploadfilef" id="uploadfilef" size="20" /></td>
+				</tr>
+				<script>
+					document.getElementById('uploadfilef').onchange = function(
+							e) {
+						if (this.files && this.files[0]) {
+							let reader = new FileReader;
+							reader.readAsDataURL(this.files[0]);
+							reader.onload = function(e) {
+								$(".select_img").attr("src", e.target.result)
+										.width(70).height(90);
+							}
+						}
+					};
+				</script>
 				<tr height="40">
 					<td colspan="2" style="text-align: center;"><input
 						type="submit" value="수정" /> &nbsp;&nbsp;&nbsp; <input

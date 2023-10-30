@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -11,10 +11,6 @@
 	<h2>** Spring_MVC2 Member Detail **</h2>
 	<table border="1">
 		<c:if test="${!empty requestScope.apple}">
-			<tr height="40">
-				<th bgcolor="pink">Image</th>
-				<td><img alt="MyImage" src="/green/${requestScope.apple.uploadfile}" width="80" height="80"></td>
-			</tr>
 			<tr height="40">
 				<th bgcolor="pink">ID</th>
 				<td>${requestScope.apple.id}</td>
@@ -51,15 +47,22 @@
 				<th bgcolor="pink">Rid</th>
 				<td>${requestScope.apple.rid}</td>
 			</tr>
+			<tr height="40">
+				<th bgcolor="pink">Image</th>
+				<td><img alt="MyImage"
+					src="/green/${requestScope.apple.uploadfile}" width="80"
+					height="80"></td>
+			</tr>
 		</c:if>
 		<c:if test="${empty requestScope.apple}">
 			<tr>
-				<td colspan="2">출력할 데이터 없음</td>			
+				<td colspan="2">출력할 데이터 없음</td>
 			</tr>
 		</c:if>
 	</table>
 	<hr>
-		&nbsp; <a href="/green/home">Home</a>
-		&nbsp; <a href="javascript:history.go(-1)">이전으로</a>
+	&nbsp;
+	<a href="/green/home">Home</a> &nbsp;
+	<a href="javascript:history.go(-1)">이전으로</a>
 </body>
 </html>
