@@ -30,6 +30,6 @@
 </c:if>
 <hr>
 <!-- &nbsp; <a href="home">Home</a> -->
-&nbsp; <a href="/green/home">Home</a>
+&nbsp; <a href="/Spring02/home">Home</a>
 </body>
 </html>

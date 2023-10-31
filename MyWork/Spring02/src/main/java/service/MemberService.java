@@ -23,5 +23,8 @@ public interface MemberService {
 
 	// ** delete
 	int delete(MemberDTO dto);
+	
+	// ** password update
+	int pupdate(MemberDTO dto);
 
 }

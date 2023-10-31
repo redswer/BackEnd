@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>** Spring_MVC2 Member Update **</title>
-<script src="/green/resources/myLib/jquery-3.2.1.min.js"></script>
+<script src="/Spring02/resources/myLib/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<h2>** Spring_MVC2 Member Update **</h2>
@@ -94,7 +94,8 @@
 					<th bgcolor="khaki">MyImage</th>
 					<td>
 						<img alt="MyImage" width="80" height="100" class="select_img"
-						src="/green/${requestScope.apple.uploadfile}">
+						src="/Spring02/${requestScope.apple.uploadfile}">
+						<br>
 						<input type="hidden"
 						name="uploadfile" value="${requestScope.apple.uploadfile}">
 						<input type="file" name="uploadfilef" id="uploadfilef" size="20" /></td>
@@ -129,7 +130,7 @@
 	<c:if test="${!empty requestScope.message}">
 		${requestScope.message}
 	</c:if>
-	<a href="/green/home">Home</a>&nbsp;&nbsp;
+	<a href="/Spring02/home">Home</a>&nbsp;&nbsp;
 	<a href="javascript:history.go(-1)">이전으로</a>&nbsp;&nbsp;
 </body>
 </html>

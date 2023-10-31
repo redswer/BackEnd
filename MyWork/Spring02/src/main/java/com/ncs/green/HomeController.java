@@ -6,8 +6,11 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -75,25 +78,20 @@ public class HomeController {
 		// => {} : 일종의 출력 포맷 으로 우측 ',' 뒷편 변수의 값이 표시됨.
 //		---------------------------------
 		// ** Logger Message Test
-/*
-		// 1. {} 활용
-		String name = "홍길동";
-		int age = 20;
-		logger.info("** test 1-1) 안녕하세요~");
-		logger.info("** test 1-2) 안녕하세요 {} 님", name);
-		logger.info("** test 1-3) name : {}, age : {}", name, age);
-
-		// 2. 로깅 레벨 조정 test
-		// => 로깅레벨 단계
-		//	TRACE > DEBUG > INFO > WARN > ERROR > FATAL
-		logger.error("** 로깅 레벨 test: error => name={}, age={}", name, age);
-		logger.warn("** 로깅 레벨 test: warn => name={}, age={}", name, age);
-		logger.info("** 로깅 레벨 test: info => name={}, age={}", name, age);
-		logger.debug("** 로깅 레벨 test: debug => name={}, age={}", name, age);
-		logger.trace("** 로깅 레벨 test: trace => name={}, age={}", name, age);
-		// => log4j.xml 에서 로거 레벨이 info 로 설정되어 있기 때문에 info 까지만 출력
-		// => log4j.xml 에서 로거 레벨을 debug 로 설정하면 debug 까지 출력됨
-*/
+		/*
+		 * // 1. {} 활용 String name = "홍길동"; int age = 20;
+		 * logger.info("** test 1-1) 안녕하세요~"); logger.info("** test 1-2) 안녕하세요 {} 님",
+		 * name); logger.info("** test 1-3) name : {}, age : {}", name, age);
+		 * 
+		 * // 2. 로깅 레벨 조정 test // => 로깅레벨 단계 // TRACE > DEBUG > INFO > WARN > ERROR >
+		 * FATAL logger.error("** 로깅 레벨 test: error => name={}, age={}", name, age);
+		 * logger.warn("** 로깅 레벨 test: warn => name={}, age={}", name, age);
+		 * logger.info("** 로깅 레벨 test: info => name={}, age={}", name, age);
+		 * logger.debug("** 로깅 레벨 test: debug => name={}, age={}", name, age);
+		 * logger.trace("** 로깅 레벨 test: trace => name={}, age={}", name, age); // =>
+		 * log4j.xml 에서 로거 레벨이 info 로 설정되어 있기 때문에 info 까지만 출력 // => log4j.xml 에서 로거 레벨을
+		 * debug 로 설정하면 debug 까지 출력됨
+		 */
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
@@ -102,6 +100,35 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 
 		return "home";
+	}
+
+	@GetMapping(value = "/bcrypt")
+	public String bcrypt() {
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String password = "12345!";
+
+		// 1. encode
+		// => 동일한 원본(raw data) 에 대해 각기 다른 결과 (digest) 생성
+		String digest1 = passwordEncoder.encode(password);
+		String digest2 = passwordEncoder.encode(password);
+		String digest3 = passwordEncoder.encode(password);
+		String digest4 = passwordEncoder.encode("6789@");
+		String digest5 = passwordEncoder.encode("abcd#");
+
+		System.out.println("** digest test1 => " + digest1);
+		System.out.println("** digest test2 => " + digest2);
+		System.out.println("** digest test3 => " + digest3);
+		System.out.println("** digest test4 => " + digest4);
+		System.out.println("** digest test5 => " + digest5);
+
+		// 2. matches (rawData, digest)
+		System.out.println("** digest1 matches => " + passwordEncoder.matches(password, digest1));
+		System.out.println("** digest2 matches => " + passwordEncoder.matches(password, digest2));
+		System.out.println("** digest3 matches => " + passwordEncoder.matches(password, digest3));
+		System.out.println("** digest4 matches => " + passwordEncoder.matches(password, digest4));
+		System.out.println("** digest5 matches => " + passwordEncoder.matches(password, digest5));
+
+		return "redirect:home";
 	}
 
 }

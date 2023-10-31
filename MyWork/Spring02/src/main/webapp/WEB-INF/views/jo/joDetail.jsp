@@ -77,7 +77,7 @@
 	</c:if>
 	<hr>
 	&nbsp;
-	<a href="/green/home">Home</a> &nbsp;
+	<a href="/Spring02/home">Home</a> &nbsp;
 	<a href="javascript:history.go(-1)">이전으로</a>&nbsp;&nbsp;
 	<a href="joList">리스트</a>
 </body>

@@ -38,7 +38,7 @@
 		${requestScope.message}
 	</c:if>
 	<!-- 	<a href="home">Home</a>&nbsp;&nbsp; -->
-	<a href="/green/home">Home</a>&nbsp;&nbsp;
+	<a href="/Spring02/home">Home</a>&nbsp;&nbsp;
 	<a href="javascript:history.go(-1)">이전으로</a>&nbsp;&nbsp;
 </body>
 </html>

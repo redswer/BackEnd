@@ -50,7 +50,7 @@
 			<tr height="40">
 				<th bgcolor="pink">Image</th>
 				<td><img alt="MyImage"
-					src="/green/${requestScope.apple.uploadfile}" width="80"
+					src="/Spring02/${requestScope.apple.uploadfile}" width="80"
 					height="80"></td>
 			</tr>
 		</c:if>
@@ -62,7 +62,7 @@
 	</table>
 	<hr>
 	&nbsp;
-	<a href="/green/home">Home</a> &nbsp;
+	<a href="/Spring02/home">Home</a> &nbsp;
 	<a href="javascript:history.go(-1)">이전으로</a>
 </body>
 </html>

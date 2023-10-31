@@ -22,4 +22,6 @@ public interface MemberMapper {
 
 	// ** delete
 	int delete(MemberDTO dto);
+	
+	int pupdate(MemberDTO dto);
 }

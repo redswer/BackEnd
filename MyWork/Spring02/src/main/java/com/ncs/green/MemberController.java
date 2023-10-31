@@ -8,12 +8,15 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -89,6 +92,42 @@ public class MemberController {
 	// => @Autowired 는 개별 멤버들마다 모두 적용해야 하지만
 	// => @AllArgsConstructor 는 클래스에만 적용하면 됨
 	MemberService service;
+	PasswordEncoder passwordEncoder;
+
+	// ** File Download
+	// => 전달받은 path 와 파일명으로 File 객체를 만들어 찾아서 response에 담아주면,
+	// 클라이언트의 웹브라우져로 전달됨.
+	@GetMapping(value = "/download")
+	public String download(HttpServletRequest request, Model model, @RequestParam("dnfile") String dnfile) {
+//		=> = String dnfile = request.getParameter("dnfile");
+
+		// 1. 파일 & path 확인
+		String realPath = request.getRealPath("/"); // deprecated Method
+		String fileName = dnfile.substring(dnfile.lastIndexOf("/") + 1);
+		// => dnfile: resources/uploadImage/robot.png
+
+		// => realpath 확인, 개발중인지, 배포했는지 에 따라 결정
+		// => 해당화일 File 찾기위함
+		if (realPath.contains(".eclipse.")) { // 개발중 (배포전: eclipse 개발환경)
+			realPath = "D:\\JinHyuk_Ahn\\BackEnd\\MyWork\\Spring02\\src\\main\\webapp\\resources\\uploadImage\\";
+		} else {
+			realPath += "resources\\uploadImage\\";
+		}
+
+		realPath += fileName; // ~~~~~\\resources\\uploadImage\\robot.png -> path 완성
+
+		// 2. 해당 파일 (path + fileName) File Type 으로 객체화
+		File file = new File(realPath);
+		model.addAttribute("downloadFile", file);
+
+		// 3. response 처리 (response 의 body 에 담아줌)
+		// => Java File 객체 -> File(내용) 정보를 response 에 전달
+		// => 이것을 처리할 View 해결사가 필요함 (DownloadView)
+
+		return "downloadView";
+		// => 이 해결사와 return 값의 연결은 설정파일(servlet-context.xml)로
+		// => 단, downloadView.jsp 문서가 존재하면 그 문서가 실행됨에 주의
+	}
 
 	// ** Lombok 의 log4j test
 	@GetMapping(value = "/log4jtest")
@@ -169,7 +208,9 @@ public class MemberController {
 		// => 성공: id, name은 session에 보관, home 으로
 		// => 실패: 재로그인 유도
 		dto = service.selectOne(dto);
-		if (dto != null && dto.getPassword().equals(password)) {
+//		if (dto != null && dto.getPassword().equals(password)) {
+		// ** passwordEncoder 적용
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword())) {
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("img", dto.getUploadfile());
 			session.setAttribute("loginName", dto.getName());
@@ -311,6 +352,9 @@ public class MemberController {
 		}
 
 		dto.setUploadfile(file2);
+		
+		dto.setPassword(passwordEncoder.encode(request.getParameter("password")));
+		
 
 		// 2. Service 처리
 		if (service.insert(dto) > 0) {
@@ -344,7 +388,7 @@ public class MemberController {
 		// => newImage 선택하지 않은 경우: 이전값 그대로사용
 		// ( form 에 hidden으로 보관해놓았으므로 dto에 담겨짐 )
 		// => MemberMapper.xml 의 SQL 구문 확인
-		
+
 		MultipartFile uploadfilef = dto.getUploadfilef();
 		// => new Image 를 선택한 경우에만 처리하면 됨
 		if (uploadfilef != null && !uploadfilef.isEmpty()) {
@@ -365,7 +409,6 @@ public class MemberController {
 			String file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
 			dto.setUploadfile(file2);
 		}
-		
 
 		if (service.update(dto) > 0) {
 			session.setAttribute("img", dto.getUploadfile());
@@ -408,6 +451,27 @@ public class MemberController {
 		} else {
 			rttr.addFlashAttribute("message", "~~ 탈퇴 실패 ~~");
 		}
+		return uri;
+	}
+	
+	@GetMapping(value = "/memberPasswordUpdate")
+	public void memberPasswordUpdate() {
+	}
+	
+	@PostMapping(value = "/mpasswordupdate")
+	public String mpasswordupdate(Model model, MemberDTO dto, HttpServletRequest request) {
+		model.addAttribute("apple", dto);
+		
+		String uri = "member/memberDetail";
+		
+		if (dto.getPassword().matches(request.getParameter("password"))
+				&& request.getParameter("npassword").equals(request.getParameter("npasswordcheck"))) {
+			dto.setPassword(passwordEncoder.encode(request.getParameter("npassword")));
+			service.pupdate(dto);
+		} else {
+			uri = "redirect:memberPasswordUpdate";
+		}
+		
 		return uri;
 	}
 

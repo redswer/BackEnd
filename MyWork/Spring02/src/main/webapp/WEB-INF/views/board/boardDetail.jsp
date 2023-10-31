@@ -64,7 +64,7 @@
 	</c:if>
 	<hr>
 	&nbsp;
-	<a href="/green/home">Home</a> &nbsp;
+	<a href="/Spring02/home">Home</a> &nbsp;
 	<a href="boardList">이전으로</a>
 </body>
 </html>

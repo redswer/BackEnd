@@ -71,6 +71,6 @@
 	</c:if>
 	<hr>
 	&nbsp;
-	<a href="/green/home">Home</a>
+	<a href="/Spring02/home">Home</a>
 </body>
 </html>

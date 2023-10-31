@@ -14,7 +14,7 @@
 <hr>
 
 <c:if test="${!empty sessionScope.loginID}">
-	<img alt="MyImage" src="/green/${sessionScope.img}" border="1" width="50" height="50">
+	<img alt="MyImage" src="/Spring02/${sessionScope.img}" border="1" width="50" height="50">
 	${sessionScope.loginName}님 안녕하세요
 	<br>
 </c:if>
@@ -24,7 +24,7 @@
 </c:if>
 <hr>
 
-<img alt="mainImage" src="/green/resources/image/tulips.png" width="300" height="200">
+<img alt="mainImage" src="/Spring02/resources/image/tulips.png" width="300" height="200">
 <hr>
 
 <c:if test="${empty sessionScope.loginID}">
@@ -38,6 +38,7 @@
 	&nbsp;<a href="member/logout">로그아웃</a>&nbsp;
 	&nbsp;<a href="member/mdetail?id=${sessionScope.loginID}">내 정보</a>&nbsp;
 	&nbsp;<a href="member/mdetail?jCode=U&id=${sessionScope.loginID}">내 정보 수정</a>&nbsp;
+	&nbsp;<a href="member/memberPasswordUpdate?id=${sessionScope.loginID}">패스워드 수정</a>&nbsp;
 	&nbsp;<a href="member/mdelete?id=${sessionScope.loginID}">탈퇴</a>&nbsp;
 </c:if>
 <br>
@@ -51,5 +52,8 @@
 <br>
 <hr>
 &nbsp;<a href="jo/joList">조 List</a>
+<br>
+<hr>
+&nbsp;<a href="bcrypt">BCrypt</a>
 </body>
 </html>

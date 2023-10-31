@@ -54,5 +54,11 @@ public class MemberServiceImpl implements MemberService {
 	public int delete(MemberDTO dto) {
 		return mapper.delete(dto);
 	}
+	
+	// ** password update
+	@Override
+	public int pupdate(MemberDTO dto) {
+		return mapper.pupdate(dto);
+	}
 
 }// class
