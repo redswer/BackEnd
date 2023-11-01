@@ -7,6 +7,85 @@
 <meta charset="UTF-8">
 <title>** Spring_MVC2 Member Join **</title>
 <script src="/Spring02/resources/myLib/jquery-3.2.1.min.js"></script>
+<script src="/Spring02/resources/myLib/inCheck.js"></script>
+<link rel="stylesheet" type="text/css" href="/Spring02/resources/myLib/myStyle.css">
+<script>
+"use strict";
+	// ** id 중복확인
+
+	// ** 입력값의 무결성 점검
+	// 1) 모든항목  focusout 이벤트핸들러
+	//    => 개별항목 점검확인하는 boolean Type 변수 (스위치변수) 
+	//    => 개별항목 점검 function() 작성
+	// 2) submit 진행전에 점검확인
+	//    => 모든항목의 점검이 완료된 경우에만  submit 진행
+	//    => function inCheck() 로 확인
+	//    => submit 버튼의 onclick 리스너에 등록
+	//       ( submit 의 default 이벤트 고려 )
+
+	// 1. switch 변수 정의
+	let iCheck = false;
+	let pCheck = false;
+    let p2Check = false;
+	let nCheck = false;
+	let aCheck = false;
+	let bCheck = false;
+	let oCheck = false;
+
+	// 2. 개별적으로 확인
+	// => 이벤트: focusout, keydown_EnterKey 적용
+	// => 오류가 없으면: switch 변수값을 true로, 메시지삭제 
+	// => 오류가 있다면: switch 변수값을 false로, 메시지출력   
+	// => 순서: Tag인식 -> Tag의 value가져오기 -> 무결성확인
+	onload = function () {
+        document.getElementById('id').addEventListener('keydown'
+                , (e) => {
+                    if (e.which == 13) {
+                        e.preventDefault();
+                        document.getElementById('password').focus();
+                    }
+                });
+        
+        document.getElementById('id').addEventListener('focusout', () => { iCheck = idCheck(); });
+        document.getElementById('password').addEventListener('focusout', () => { pCheck = pwCheck(); });
+        document.getElementById('password2').addEventListener('focusout', () => { p2Check = pw2Check(); });
+        document.getElementById('name').addEventListener('focusout', () => { nCheck = nameCheck(); });
+        document.getElementById('age').addEventListener('focusout', () => { aCheck = ageCheck(); });
+        document.getElementById('birthday').addEventListener('focusout', () => { bCheck = bdCheck(); });
+        document.getElementById('point').addEventListener('focusout', () => { oCheck = poCheck(); });
+	}
+	
+    function inCheck() {
+        if (iCheck == false) { document.getElementById('iMessage').innerHTML = '필수입력, id 는 4~10 글자 입니다.'; }
+        if (pCheck == false) { document.getElementById('pMessage').innerHTML = '필수입력, Password 입력 하세요.'; }
+        if (p2Check == false) { document.getElementById('p2Message').innerHTML = '필수입력, Password 확인'; }
+        if (nCheck == false) { document.getElementById('nMessage').innerHTML = '필수입력, Name 입력 하세요.'; }
+        if (aCheck == false) { document.getElementById('aMessage').innerHTML = '필수입력, Age 입력 하세요.'; }
+        if (bCheck == false) { document.getElementById('bMessage').innerHTML = '필수입력, Brthday 입력 하세요.'; }
+        if (oCheck == false) { document.getElementById('oMessage').innerHTML = '필수입력, Point 입력 하세요.'; }
+
+        if (iCheck && pCheck && p2Check && nCheck && aCheck && bCheck && oCheck) {
+            if (confirm('정말 가입하십니까 ? (Yes:확인 / No:취소)')) {
+                return true;
+            } else {
+                alert('가입이 취소 되었습니다.');
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
+    
+    function idDupCheck() {
+    	if (iCheck == false) {
+    		iCheck = idCheck();
+    	} else {
+    		let url = "idDupCheck?id=" + document.getElementById('id').value;
+    		window.open(url, '_blank', 'width=400,height=300,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes');
+    	}
+    }
+</script>
 </head>
 <body>
 	<h2>** Spring_MVC2 Member Join **</h2>
@@ -31,22 +110,44 @@
 		<table border="1">
 			<tr height="40">
 				<th bgcolor="aqua">ID</th>
-				<td><input type="text" name="id" placeholder="영어+숫자, 10글자 이내"
-					size="20" /></td>
+				<td>
+					<input type="text" name="id" id="id"
+					placeholder="영어+숫자, 10글자 이내" size="20" />
+					<button type="button" id="idDup"
+						onClick="idDupCheck()">중복 확인</button>
+					<span id="iMessage" class="eMessage"></span>
+				</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Password</th>
-				<td><input type="password" name="password"
-					placeholder="영어+슷자+특수문자" size="20" /></td>
+				<td>
+					<input type="password" name="password" id="password"
+					placeholder="영어+슷자+특수문자" size="20" />
+					<span id="pMessage" class="eMessage"></span>
+				</td>
+			</tr>
+			<tr height="40">
+				<th bgcolor="aqua">Password Check</th>
+				<td>
+					<input type="password" name="password2" id="password2"
+					placeholder="패스워드 확인" size="20" />
+					<span id="p2Message" class="eMessage"></span>
+				</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Name</th>
-				<td><input type="text" name="name" placeholder="한글 또는 영어"
-					size="20" /></td>
+				<td>
+					<input type="text" name="name" placeholder="한글 또는 영어"
+					size="20" id="name" />
+					<span id="nMessage" class="eMessage"></span>
+				</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Age</th>
-				<td><input type="text" name="age" placeholder="숫자입력" size="20" />
+				<td>
+					<input type="text" name="age" id="age" placeholder="숫자입력"
+					size="20" />
+					<span id="aMessage" class="eMessage"></span>
 				</td>
 			</tr>
 			<tr height="40">
@@ -67,12 +168,18 @@
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Point</th>
-				<td><input type="text" name="point" placeholder="실수입력"
-					size="20" /></td>
+				<td>
+					<input type="text" name="point" id="point" placeholder="실수입력"
+					size="20" />
+					<span id="oMessage" class="eMessage"></span>
+				</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Birthday</th>
-				<td><input type="date" name="birthday" size="20" /></td>
+				<td>
+					<input type="date" name="birthday" id="birthday" size="20" />
+					<span id="bMessage" class="eMessage"></span>
+				</td>
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Rid</th>
@@ -81,10 +188,8 @@
 			</tr>
 			<tr height="40">
 				<th bgcolor="aqua">Image</th>
-				<td>
-					<img src="" class="select_img"><br>
-					<input type="file" name="uploadfilef" id="uploadfilef" size="20" />
-				</td>
+				<td><img src="" class="select_img"><br> <input
+					type="file" name="uploadfilef" id="uploadfilef" size="20" /></td>
 			</tr>
 			<script>
 				// 해당 파일의 서버상의 경로를 src로 지정하는것으로는 클라이언트 영역에서 이미지는 표시될수 없기 때문에
@@ -116,9 +221,11 @@
 				}; //change  -> }); JQ 사용시
 			</script>
 			<tr height="40">
-				<td colspan="2" style="text-align: center;"><input
-					type="submit" value="가입" /> &nbsp;&nbsp;&nbsp; <input type="reset"
-					value="취소" /></td>
+				<td colspan="2" style="text-align: center;">
+					<input type="submit" value="가입" id="submitTag"
+						onClick="return inCheck()" disabled/> &nbsp;&nbsp;&nbsp;
+					<input type="reset" value="취소" />
+				</td>
 			</tr>
 		</table>
 	</form>

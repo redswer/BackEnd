@@ -352,9 +352,8 @@ public class MemberController {
 		}
 
 		dto.setUploadfile(file2);
-		
+
 		dto.setPassword(passwordEncoder.encode(request.getParameter("password")));
-		
 
 		// 2. Service 처리
 		if (service.insert(dto) > 0) {
@@ -382,6 +381,8 @@ public class MemberController {
 		// => 처리결과에 따른 화면 출력을 위해 dto 의 값을 attribute 에 보관
 
 		String uri = "member/memberDetail";
+
+		dto.setPassword(null);
 
 		// *** ImageUpload 처리 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// => newImage 선택한경우: MultipartFile 처리
@@ -453,26 +454,47 @@ public class MemberController {
 		}
 		return uri;
 	}
-	
+
+//	=============================================
+	// ** 비밀번호 수정
 	@GetMapping(value = "/memberPasswordUpdate")
 	public void memberPasswordUpdate() {
 	}
-	
+
 	@PostMapping(value = "/mpasswordupdate")
 	public String mpasswordupdate(Model model, MemberDTO dto, HttpServletRequest request) {
-		model.addAttribute("apple", dto);
-		
-		String uri = "member/memberDetail";
-		
-		if (dto.getPassword().matches(request.getParameter("password"))
-				&& request.getParameter("npassword").equals(request.getParameter("npasswordcheck"))) {
-			dto.setPassword(passwordEncoder.encode(request.getParameter("npassword")));
-			service.pupdate(dto);
-		} else {
-			uri = "redirect:memberPasswordUpdate";
+
+		String id = (String) request.getSession().getAttribute("loginID");
+
+		if (id == null) {
+			model.addAttribute("message", "재로그인 필요");
+			return "member/loginForm";
 		}
-		
+
+		dto.setId(id);
+		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+		String uri = "member/loginForm";
+		if (service.update(dto) > 0) {
+			request.getSession().invalidate();
+			model.addAttribute("message", "패스워드 수정 완료");
+		} else {
+			model.addAttribute("message", "패스워드 수정 실패");
+			uri = "member/memberPasswordUpdate";
+		}
 		return uri;
 	}
 
+//	=====================================================
+	// ** id 중복확인
+	@GetMapping(value = "/idDupCheck")
+	public String idDupCheck(MemberDTO dto, Model model) {
+		
+		if (service.selectOne(dto) != null) {
+			model.addAttribute("idUse", "F");
+		} else {
+			model.addAttribute("idUse", "T");
+		}
+		return "member/idDupCheck";
+	}
 } // class
