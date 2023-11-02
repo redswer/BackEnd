@@ -2,9 +2,18 @@ package mapperInterface;
 
 import java.util.List;
 
+import criTest.SearchCriteria;
 import domain.BoardDTO;
 
 public interface BoardMapper {
+	// ** Board_Search_Cri_Paging
+	List<BoardDTO> searchCri(SearchCriteria cri);
+	int searchTotalCount(SearchCriteria cri);
+	
+	// ** Board_Cri_Paging
+	List<BoardDTO> bcriList(SearchCriteria cri);
+	int criTotalCount();
+	
 	// ** rinsert
 	int rinsert(BoardDTO dto);
 	int stepUpdate(BoardDTO dto);

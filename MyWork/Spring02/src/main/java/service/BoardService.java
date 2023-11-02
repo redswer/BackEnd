@@ -2,9 +2,15 @@ package service;
 
 import java.util.List;
 
+import criTest.SearchCriteria;
 import domain.BoardDTO;
 
 public interface BoardService {
+	// ** Board_Cri_Paging
+//	int criTotalCount();
+	int criTotalCount(SearchCriteria cri);
+	List<BoardDTO> bcriList(SearchCriteria cri);
+	
 	// ** rinsert
 	int rinsert(BoardDTO dto);
 

@@ -8,9 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import criTest.PageMaker;
+import criTest.SearchCriteria;
 import domain.BoardDTO;
 import lombok.AllArgsConstructor;
 import service.BoardService;
@@ -22,6 +23,29 @@ public class BoardController {
 
 	BoardService service;
 
+	// ** Board_Cri_Paging
+	
+	@GetMapping(value="/bcriList")
+	public void bcriList(Model model, SearchCriteria cri, PageMaker pageMaker) {
+		// 1. Criteria 처리
+		// => ver01: currPage, rowsPerPage 값들은 Parameter 로 전달되어 자동으로 cri 에 set
+		// => ver02: ver01 + searchType, keyword
+		cri.setSnoEno();
+		
+		// 2. service 처리
+		// => ver01, ver02 모두 같은 service 사용
+		// =>  단, MapperInterface 에서 사용하는 SQL 구문만 변경
+		model.addAttribute("banana", service.bcriList(cri));
+		
+		// 3. view 처리 : PageMaker 필요
+	    // => cri, totalRowsCount (DB 에서 Read)
+		pageMaker.setCri(cri);
+//		pageMaker.setTotalRowsCount(service.criTotalCount());
+		pageMaker.setTotalRowsCount(service.criTotalCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+//	========================================
 	// * replyInsert
 	// => root, step, indent 를 replyInsert Form 으로 전달해야 함
 	// => 매핑 메서드의 인자로 정의된 dto 는 request.setAttribute 와 동일한 scope

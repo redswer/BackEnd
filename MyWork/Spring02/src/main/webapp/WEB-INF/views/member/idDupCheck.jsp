@@ -60,6 +60,7 @@
 			<!-- memberDTO.id 와 param.id 모두 사용 가능 -->
 			<input type="submit" value="중복 확인" onClick="return idCheck()">
 			<!-- idCheck() 는 inCheck.js 에 정의되어 있음 -->
+			<br>
 			<span id="iMessage" class="eMessage"></span>
 		</form>
 		<br>

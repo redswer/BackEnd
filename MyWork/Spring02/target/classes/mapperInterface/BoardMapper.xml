@@ -36,6 +36,54 @@
 		<!-- #{seq} : selectOne 의 매개변수 중 seq 의 값  -->
 		select * from board where seq = #{seq}
 	</select>
+<!-- ===================================== -->
+<!-- ** ver01: Board_Cri_Paging -->
+	<select id="bcriList" resultType="domain.BoardDTO">
+		select * from board
+		order by root desc, step asc
+		limit #{sno}, #{rowsPerPage}
+		<!-- limit a, b => a 개 제외하고 a+1 부터 b 개 -->
+	</select>
+	<select id="criTotalCount" resultType="int">
+		select count(*) from board
+	</select>
+<!-- ver02: Board_SearchCri_Paging -->
+	<sql id="search">
+		<!-- 1. % 기호의 문자열 연결 처리 (sql 의 concat) -->
+		<if test="keyword != null">
+			<bind name="keyVal" value="'%' + keyword + '%'"/>
+			<!-- bind : value 의 값을 name 에 할당 -->
+		</if>
+		<!-- 2. like 조건문 -->
+		<choose>
+			<when test="searchType != null and searchType != 'all'">
+				and ${searchType} like #{keyVal})
+			</when>
+			<when test="searchType == 'all' and keyword != null">
+				and (title like #{keyVal}
+				or id like #{keyVal}
+				or content like #{keyVal}))
+			</when>
+			<otherwise>
+				)
+			</otherwise>
+		</choose>
+	</sql>
+	<select id="searchCri" resultType="domain.BoardDTO">
+		select * from board
+		where (seq > 0 <include refid="search"></include>
+		order by root desc, step asc
+		limit #{sno}, #{rowsPerPage}
+		<!-- ${} : column -->
+		<!-- #{} : value -->
+		<!-- like '%spring%' : spring 이 포함된 조건 -->
+		<!-- % + #{} + % => MySql 문법은 concat 을 이용해야 하기 때문에 불편함
+						 => MyBatis 의 sql 태그 사용이 편리함 -->
+	</select>
+	<select id="searchTotalCount" resultType="int">
+		select count(*) from board
+		where (seq > 0 <include refid="search"></include>
+	</select>
 <!-- =================================================== -->
 <!-- ** Insert -->
 	

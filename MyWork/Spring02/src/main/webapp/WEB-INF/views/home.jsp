@@ -49,7 +49,8 @@
 &nbsp;<a href="member/log4jtest">롬복 log4j</a>
 <br>
 <hr>
-&nbsp;<a href="board/boardList">bList</a>
+&nbsp;<a href="board/boardList">bList</a>&nbsp;
+&nbsp;<a href="board/bcriList">bcriList</a>
 <br>
 <hr>
 &nbsp;<a href="jo/joList">조 List</a>

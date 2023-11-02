@@ -35,13 +35,13 @@ public class PageMaker {
 	private boolean prev; //이전 PageBlock 으로
 	private boolean next; //다음 PageBlock 으로
 	
-	//Criteria cri;  // ver01
+//	Criteria cri;  // ver01
 	SearchCriteria cri; // ver02
 	
 	// ** 필요값 set
 	// 1) Criteria
-	// public void setCri(Criteria cri) { -> ver01   
-	public void setCri(SearchCriteria cri) { //ver02	
+//	public void setCri(Criteria cri) { //  ver01   
+	public void setCri(SearchCriteria cri) { // ver02	
 		this.cri=cri;
 	}
 	// 2) totalRowsCount
