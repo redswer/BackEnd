@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="uploadImages"/>
+		<item key="selection" value="demo"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Spring02"/>
+			<item value="domain"/>
+			<item value="junit"/>
 			<item value="uploadimages"/>
 			<item value="/green"/>
 			<item value="/Spring"/>
@@ -20,11 +23,11 @@
 			<item value="Member"/>
 			<item value="MemberDAO"/>
 			<item value="bgcolor=&quot;aqua&quot;"/>
-			<item value="설정화일"/>
-			<item value="servletTestForm"/>
-			<item value="ser"/>
 		</list>
 		<list key="replacehistory">
+			<item value="demo"/>
+			<item value="com.example.demo.domain"/>
+			<item value="com.example.demo.domian"/>
 			<item value="/Spring02"/>
 			<item value="/Spring"/>
 			<item value="파일"/>
@@ -37,9 +40,6 @@
 			<item value="BoardDAO"/>
 			<item value="BoardService"/>
 			<item value="bgcolor=&quot;khaki&quot;"/>
-			<item value="설정파일"/>
-			<item value="member"/>
-			<item value="Web02"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

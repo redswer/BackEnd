@@ -1,0 +1,10 @@
+// ** Image 추가 (File Upload 기능)
+// => member table 에 uploadfile 컬럼 추가
+
+alter table member add uploadfile varchar(50) default "resources/uploadImage/aaa.gif";
+update member set uploadfile="resources/uploadImage/aaa.gif" where jno=1;
+update member set uploadfile="resources/uploadImage/bbb.gif" where jno=2;
+update member set uploadfile="resources/uploadImage/ccc.gif" where jno=3;
+update member set uploadfile="resources/uploadImage/ddd.gif" where jno=4;
+update member set uploadfile="resources/uploadImage/eee.gif" where jno=5;
+update member set uploadfile="resources/uploadImage/xxx.gif" where jno=7;
