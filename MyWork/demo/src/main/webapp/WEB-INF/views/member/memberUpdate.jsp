@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>** Spring_Boot Member Update **</title>
-<script src="/demo/resources/myLib/jquery-3.2.1.min.js"></script>
+<script src="/resources/myLib/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<h2>** Spring_Boot Member Update **</h2>
@@ -18,19 +18,6 @@
 					<td><input type="text" name="id" placeholder="영어+숫자, 10글자 이내"
 						value="${requestScope.apple.id}" size="20" readOnly /></td>
 				</tr>
-				<!-- id: 화면 출력은 되어야 하나 수정은 불가해야 함 (input 태그의 입력 막기)
-					-> readOnly: 서버로 전송됨
-					-> disabled: 서버로 전송되지 않음
-				 -->
-				<%-- 				<tr height="40">
-					<th bgcolor="khaki">Password</th>
-					<td><input type="password" name="password"
-						placeholder="영어+슷자+특수문자" value="${requestScope.apple.password}"
-						size="20" /></td>
-				</tr> --%>
-				<!-- password 는 기본적으로 복호화가 불가능하게 암호화되어 있으므로 
-					별도로 처리 (본인 재 인증 후 변경)
-				 -->
 				<tr height="40">
 					<th bgcolor="khaki">Name</th>
 					<td><input type="text" name="name" placeholder="한글 또는 영어"
@@ -84,12 +71,6 @@
 					<td><input type="text" name="rid" placeholder="추천인"
 						value="${requestScope.apple.rid}" size="20" /></td>
 				</tr>
-				<!-- Image Update 추가 
-         => form Tag : method, enctype 확인
-         => new Image 를 선택하는 경우 -> uploadfilef 사용
-         => new Image 를 선택하지않는 경우 
-            -> 본래 Image 를 사용 -> uploadfile 값이 필요함
-   -->
 				<tr height="40">
 					<th bgcolor="khaki">MyImage</th>
 					<td>
