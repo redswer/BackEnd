@@ -55,5 +55,6 @@
 &nbsp;<a href="jo/joList">조 List</a>
 <br>
 <hr>
+&nbsp;<a href="/axtestform">Ajax Test</a>
 </body>
 </html>

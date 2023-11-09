@@ -4,15 +4,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.JoDTO;
+import com.example.demo.domain.MemberDTO;
 import com.example.demo.domain.UserDTO;
 import com.example.demo.service.JoService;
 import com.example.demo.service.MemberService;
@@ -63,6 +70,10 @@ import lombok.extern.log4j.Log4j2;
 //*** JSON 제이슨, (JavaScript Object Notation) **********
 //=> 자바스크립트의 객체표기법으로, 데이터를 전달할때 사용하는 표준형식.
 //  속성(key) 과 값(value) 이 하나의 쌍을 이룸
+//=> JSON의 파일 확장자는 .json
+//=> 주요 메서드
+// - JSON.stringify() : JavaScript 값이나 객체를 JSON 문자열로 변환.
+// - JSON.parse() :  JSON 문자열을 구문 분석하여 JavaScript 값이나 객체를 생성함.
 
 //** JAVA의 Data 객체 -> JSON 변환하기
 //** 참고용어 
@@ -177,13 +188,33 @@ public class RTestController {
 	public List<JoDTO> getlist() {
 		return jservice.selectList();
 	}
+	
 //	-----------------------------
 	// ** ResponseEntity
+	// => Status (200, 404 등 응답 상태 코드) , Headers, Body 등을 함께 전송할수있음. 
+	// => status : 200(OK), 502(BAD_GATEWAY) , 500(INTERNAL_SERVER_ERROR)
+	// => 즉, 직접 status code 지정 가능. 
+	// => 사용법
+	//   - Builder Pattern (권장)
+	//   - Constructor 사용하는 방식 : 아래 rsdelete 참고
+   
+	// ** Parameter 를 쿼리스트링으로 전달하는 경우 서버에서 처리방법
+	// 1) params 속성으로 처리
+	//   - URL Query_String Param Parsing, "key=value" 형식으로 전달된 파라미터 매핑
+   
+	// 2) @RequestParam 으로 처리
+	//   - @RequestParam("jno") int jno -> Spring02의 MemberController, /dnload 참고
+	// => params 와 @RequestParam  비교 해보세요.   
+   
+	// 3) @PathVariable
+	// 4) @RequestBody
+   
 	// ** params 속성
-	// => 값에 상관없이 파라미터에 params 속성으로 정의한 "jno", "captain" 이 반드시 있어야 호출됨 
-	//		만약 하나라도 전달받지 못하면 "400–잘못된 요청" 오류 발생
+	// => 값에 상관없이 파라미터에 params 속성으로 정의한 "jno", "id" 이 반드시 있어야 호출됨 
+	//      만약 하나라도 전달받지 못하면 "400–잘못된 요청" 오류 발생
 	// => Parameter name 과 매개변수는 이름으로 매핑함. (즉, 같아야함)
-
+	// => Spring02 의 MemberController의 상단 주석 params 참고
+	
 	// 4) ResponseEntity Test
 	// => 실습
 	//     전달된 jno값의 조건에 의하여 502(BAD_GATEWAY) 또는 200(OK) 상태코드와 데이터를 함께 전송하므로 
@@ -208,10 +239,91 @@ public class RTestController {
 		
 		return result;
 	}
-
+	
+//	-------------------------------
 	// 5) @PathVariable
-
+	@GetMapping("/order/{test1}/{test2}")
+	public String[] order(@PathVariable("test1") String category,
+							@PathVariable("test2") String color) {
+		
+		return new String[] {"category: "+ category, "color: "+ color};
+	}
+	
+//	-------------------------------
 	// 6) @RequestBody
-
+	// => JSON 형식으로 전달된 Data를 컨트롤러에서 사용자정의 객체(DTO) _Java객체 로 변환할때 사용 
+	// => 요청 url : http://localhost:8088/rest/convert
+	// => Payload : {"jno":33, "jname":"삼삼오오", "id":"victory", "project":"RequestBody Test 중"}
+	@PostMapping("/convert")
+	public ResponseEntity<?> convert(@RequestBody JoDTO dto) {
+		ResponseEntity<JoDTO> result = null;
+		
+		if(dto != null) {
+			result = ResponseEntity.status(HttpStatus.OK).body(dto);
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(dto);
+		}
+		
+		return result;
+	}
+//	=========================================================
 	// ** Ajax : 비동기 통신
+	// => Request : JSON, Response : Text
+	// => fetch 요청
+	@PostMapping(value = "/rslogin",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<?> rslogin(@RequestBody MemberDTO dto, HttpSession session) {
+		ResponseEntity<String> result = null;
+		
+		// 1. password 보관
+		String password = dto.getPassword();
+		
+		// 2. service 처리
+		dto = service.selectOne(dto);
+		
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword()) ) {
+			// id 확인 성공 -> password 확인 진행
+			session.setAttribute("loginID", dto.getId());
+			session.setAttribute("loginName", dto.getName());
+			session.setAttribute("img", dto.getUploadfile());
+			result = ResponseEntity.status(HttpStatus.OK).body("로그인 성공");
+		} else {
+			// 로그인 실패
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("로그인 실패");
+		}
+		
+		return result;
+	}
+	
+//	---------------------------------
+	// ** JSON -> JSON
+	@PostMapping(value = "/rsloginjj",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> rsloginjj(@RequestBody MemberDTO dto, HttpSession session) {
+		ResponseEntity<UserDTO> result = null;
+		
+		String password = dto.getPassword();
+		
+		dto = service.selectOne(dto);
+		
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword()) ) {
+			session.setAttribute("loginID", dto.getId());
+			session.setAttribute("loginName", dto.getName());
+			session.setAttribute("img", dto.getUploadfile());
+			
+			final UserDTO userDTO = UserDTO.builder()
+					.id(dto.getId())
+					.username(dto.getName())
+					.build();
+			
+			result = ResponseEntity.status(HttpStatus.OK).body(userDTO);
+		} else {
+			// 로그인 실패
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(null);
+		}
+		
+		return result;
+	}
 }
