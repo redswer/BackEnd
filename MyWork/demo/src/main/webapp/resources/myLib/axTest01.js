@@ -16,10 +16,10 @@ function rsLoginf() {
 				<td><input type="password" id="password" name="password"></td>
 			</tr>
 			<tr height="30">
-				<td></td>
-        		<td>
+        		<td colspan=2>
         			<span class="textlink" onclick="rsLogin()">rsLogin</span>&nbsp;&nbsp;
         			<span class="textlink" onclick="rsLoginJJ()">rsLoginjj</span>&nbsp;&nbsp;
+        			<span class="textlink" onclick="axiLoginJJ()">axiLoginjj</span>&nbsp;&nbsp;
          			<input type="reset" value="취소">
          		</td>
 			</tr>
@@ -71,7 +71,7 @@ function rsLogin() {
        	// => 1단계에서 return 한 Data 처리
        	
        	alert(`** responseData => ${responseData}`);
-       	// => reload() 호출 구문 이전에 작성한 console message는 출력 안되므로 alert 사용함. 
+       	// => 밑에서 reload() 호출 구문을 사용하면 이전에 작성한 console message는 출력 안되므로 alert 사용함. 
        	
        	location.reload();
        	// => 화면 새로고침
@@ -115,6 +115,37 @@ function rsLoginJJ() {
 		console.error(`** Error => ${err.message}`);
 		
 		if (err.message == 502) {
+			alert('id 또는 password 오류');
+		} else {
+			alert('system 오류');
+		}
+	});
+}
+
+// ==================================================
+// 2) Axios Login
+// => JSON -> JSON
+// => 라이브러리 추가 필요함 (CDN 으로)
+
+function axiLoginJJ() {
+	let url = "/rest/rsloginjj";
+	
+	axios({ url: url,
+			method: 'Post',
+			headers: { 'Content-Type': 'application/json'},
+			data: { id: document.getElementById('id').value,
+					password: document.getElementById('password').value
+			}
+	}).then(response => {
+		alert(`** response.data => ${response.data}`);
+		alert(`** response => id: ${response.data.id}, name: ${response.data.username}`);
+		
+		location.reload();
+		
+	}).catch(err => {
+		console.error(`** err.response, status, message => ${err.response}, ${err.response.status}, ${err.message}`);
+		
+		if (err.response.status == 502) {
 			alert('id 또는 password 오류');
 		} else {
 			alert('system 오류');

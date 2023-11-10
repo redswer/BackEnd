@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="domain.MemberDTO"/>
-    <fullyQualifiedTypeName name="domain.BoardDTO"/>
-    <fullyQualifiedTypeName name="org.springframework.web.context.annotation.RequestScope"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
     <fullyQualifiedTypeName name="mapperInterface.BoardMapper"/>
     <fullyQualifiedTypeName name="mapperInterface.MemberMapper"/>
     <fullyQualifiedTypeName name="mapperInterface.JoMapper"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="org.springframework.util.FileCopyUtils"/>
-    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
     <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="criTest.PageMaker"/>
     <fullyQualifiedTypeName name="criTest.SearchCriteria"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Select"/>
@@ -33,7 +25,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="com.example.demo.domain.MemberDTO"/>
     <fullyQualifiedTypeName name="com.example.demo.service.MemberService"/>
     <fullyQualifiedTypeName name="com.example.demo.service.BoardService"/>
     <fullyQualifiedTypeName name="com.example.demo.domain.BoardDTO"/>
@@ -51,7 +42,6 @@
     <fullyQualifiedTypeName name="lombok.Builder"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.http.parser.MediaType"/>
     <fullyQualifiedTypeName name="java.awt.PageAttributes.MediaType"/>
-    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.List"/>
@@ -59,5 +49,15 @@
     <fullyQualifiedTypeName name="com.example.demo.service.JoService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.example.demo.domain.MemberDTO"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.jni.File"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>

@@ -20,6 +20,12 @@ public class MemberServiceImpl implements MemberService {
 	MemberMapper mapper;
 //	= MemberDAO dao = new MemberDAO();
 
+	// ** selectOneJno
+	@Override
+	public MemberDTO selectOneJno(String id, Integer jno) {
+		return mapper.selectOneJno(id, jno);
+	}
+	
 	// ** selectJno
 	@Override
 	public List<MemberDTO> selectJno(int jno) {

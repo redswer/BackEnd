@@ -6,6 +6,9 @@ import com.example.demo.domain.MemberDTO;
 
 
 public interface MemberService {
+	
+	// Rest Controller
+	MemberDTO selectOneJno(String id, Integer jno);
 
 	// ** selectJno
 	List<MemberDTO> selectJno(int jno);

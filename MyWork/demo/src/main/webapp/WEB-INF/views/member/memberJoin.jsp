@@ -106,7 +106,7 @@
        multipart/form-data로 지정이 되어 있어야 서버에서 정상적으로 데이터를 처리할 수 있다.     
 -->
 	<!-- 	<form action="join" method="post"> -->
-	<form action="join" method="post" enctype="multipart/form-data">
+	<form action="join" method="post" enctype="multipart/form-data" id="myForm">
 		<table border="1">
 			<tr height="40">
 				<th bgcolor="aqua">ID</th>
@@ -223,8 +223,9 @@
 			<tr height="40">
 				<td colspan="2" style="text-align: center;">
 					<input type="submit" value="가입" id="submitTag"
-						onClick="return inCheck()" disabled/> &nbsp;&nbsp;&nbsp;
-					<input type="reset" value="취소" />
+						onClick="return inCheck()" disabled/> &nbsp;&nbsp;
+					<input type="reset" value="취소" />&nbsp;&nbsp;
+					<input type="button" value="rsJoin" onclick="rsJoin()" />
 				</td>
 			</tr>
 		</table>

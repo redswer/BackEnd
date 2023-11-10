@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 <title>** Ajax Test Main Form **</title>
 <link rel="stylesheet" type="text/css" href="/resources/myLib/myStyle.css">
-<script src="resources/myLib/axTest01.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/resources/myLib/jquery-3.2.1.min.js"></script>
+<script src="/resources/myLib/axTest01.js"></script>
+<script src="/resources/myLib/axTest02.js"></script>
 </head>
 <body>
 	<h2>** Ajax Test Main Form **</h2>
@@ -23,6 +26,7 @@
 	</c:if>
 	<hr>
 	&nbsp;<span class="textlink" onclick="rsLoginf()">rsLogin</span>
+	&nbsp;<span class="textlink" onclick="rsJoinf()">rsJoin</span>
 	&nbsp;<a href="/home">[Home]</a>
 	<hr>
 	<div id="resultArea1"></div>
