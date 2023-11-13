@@ -19,14 +19,16 @@
 		<img alt="MyImage" src="/${sessionScope.img}" border="1" width="50" height="50">
 		${sessionScope.loginName}님 안녕하세요
 	<br>
+	<hr>
 	</c:if>
 	<c:if test="${!empty requestScope.message}">
 		${requestScope.message}
 	<br>
-	</c:if>
 	<hr>
+	</c:if>
 	&nbsp;<span class="textlink" onclick="rsLoginf()">rsLogin</span>
 	&nbsp;<span class="textlink" onclick="rsJoinf()">rsJoin</span>
+	&nbsp;<span class="textlink" onclick="axiMList()">axiMList</span>
 	&nbsp;<a href="/home">[Home]</a>
 	<hr>
 	<div id="resultArea1"></div>

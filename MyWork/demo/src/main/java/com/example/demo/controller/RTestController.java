@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -150,16 +151,14 @@ public class RTestController {
 
 	// 2) 사용자 정의 객체
 	// 2.1) 객체 Return1. : produces 지정한 경우
-	@GetMapping(value = "/getdto1",
-				produces = { MediaType.APPLICATION_JSON_VALUE,
-							MediaType.APPLICATION_XML_VALUE })
-   // => produces
-   //   - JSON 과 XML 방식의 데이터를 생성할 수 있도록 설정
-   //   - Response Data Type을 제한 함으로 오류를 줄임
-   //   - 입력값을 제한할때는 "consumes" 속성 사용
-   // => 요청 url의 확장자에 따라 다른 타입으로 서비스
-   //   - Test1) 브라우져에서 /rest/getdto1 호출 -> 위 둘중 XML 전송(default) 
-   //   - Test2) 브라우져에서 /rest/getdto1.json 호출 -> JSON 전송  
+	@GetMapping(value = "/getdto1", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+	// => produces
+	// - JSON 과 XML 방식의 데이터를 생성할 수 있도록 설정
+	// - Response Data Type을 제한 함으로 오류를 줄임
+	// - 입력값을 제한할때는 "consumes" 속성 사용
+	// => 요청 url의 확장자에 따라 다른 타입으로 서비스
+	// - Test1) 브라우져에서 /rest/getdto1 호출 -> 위 둘중 XML 전송(default)
+	// - Test2) 브라우져에서 /rest/getdto1.json 호출 -> JSON 전송
 	public UserDTO getDTO01() {
 		return new UserDTO("mytoken11", "banana", "홍길동", "banana@green.com", "12345!");
 	}
@@ -176,12 +175,12 @@ public class RTestController {
 	@GetMapping("/getmap")
 	public Map<String, UserDTO> getmap() {
 		Map<String, UserDTO> map = new HashMap<String, UserDTO>();
-		
+
 		map.put("one", new UserDTO("mytoken11", "banana", "홍길동", "banana@green.com", "12345!"));
 		map.put("two", new UserDTO("mytoken22", "banana", "홍길동", "banana@green.com", "12345!"));
 		map.put("삼", new UserDTO("mytoken33", "banana", "홍길동", "banana@green.com", "12345!"));
 		map.put("4", new UserDTO("mytoken44", "banana", "홍길동", "banana@green.com", "12345!"));
-		
+
 		return map;
 	}
 
@@ -190,55 +189,54 @@ public class RTestController {
 	public List<JoDTO> getlist() {
 		return jservice.selectList();
 	}
-	
+
 //	=======================================================
 	// ** ResponseEntity
-	// => Status (200, 404 등 응답 상태 코드) , Headers, Body 등을 함께 전송할수있음. 
+	// => Status (200, 404 등 응답 상태 코드) , Headers, Body 등을 함께 전송할수있음.
 	// => status : 200(OK), 502(BAD_GATEWAY) , 500(INTERNAL_SERVER_ERROR)
-	// => 즉, 직접 status code 지정 가능. 
+	// => 즉, 직접 status code 지정 가능.
 	// => 사용법
-	//   - Builder Pattern (권장)
-	//   - Constructor 사용하는 방식 : 아래 rsdelete 참고
-   
+	// - Builder Pattern (권장)
+	// - Constructor 사용하는 방식 : 아래 rsdelete 참고
+
 	// ** Parameter 를 쿼리스트링으로 전달하는 경우 서버에서 처리방법
 	// 1) params 속성으로 처리
-	//   - URL Query_String Param Parsing, "key=value" 형식으로 전달된 파라미터 매핑
-   
+	// - URL Query_String Param Parsing, "key=value" 형식으로 전달된 파라미터 매핑
+
 	// 2) @RequestParam 으로 처리
-	//   - @RequestParam("jno") int jno -> Spring02의 MemberController, /dnload 참고
-	// => params 와 @RequestParam  비교 해보세요.   
-   
+	// - @RequestParam("jno") int jno -> Spring02의 MemberController, /dnload 참고
+	// => params 와 @RequestParam 비교 해보세요.
+
 	// 3) @PathVariable
 	// 4) @RequestBody
-   
+
 	// ** params 속성
-	// => 값에 상관없이 파라미터에 params 속성으로 정의한 "jno", "id" 이 반드시 있어야 호출됨 
-	//      만약 하나라도 전달받지 못하면 "400–잘못된 요청" 오류 발생
+	// => 값에 상관없이 파라미터에 params 속성으로 정의한 "jno", "id" 이 반드시 있어야 호출됨
+	// 만약 하나라도 전달받지 못하면 "400–잘못된 요청" 오류 발생
 	// => Parameter name 과 매개변수는 이름으로 매핑함. (즉, 같아야함)
 	// => Spring02 의 MemberController의 상단 주석 params 참고
-	
+
 //	--------------------------------------
 	// 1) params 속성으로 처리
-	//     전달된 jno값의 조건에 의하여 502(BAD_GATEWAY) 또는 200(OK) 상태코드와 데이터를 함께 전송하므로 
-	//    요청 User가 이 응답결과(body값)의 정상/비정상 여부를 알수있도록 해준다
+	// 전달된 jno값의 조건에 의하여 502(BAD_GATEWAY) 또는 200(OK) 상태코드와 데이터를 함께 전송하므로
+	// 요청 User가 이 응답결과(body값)의 정상/비정상 여부를 알수있도록 해준다
 	// => 200 Test: http://localhost:8088/rest/incheck?jno=11&id=banana
-	//            http://localhost:8088/rest/incheck.json?jno=11&id=banana
+	// http://localhost:8088/rest/incheck.json?jno=11&id=banana
 	// => 502 Test: http://localhost:8088/rest/incheck?jno=5&id=banana
-	
+
 //	@GetMapping(value = "/incheck", params = {"jno", "id"})
 //	public ResponseEntity<?> incheck(int jno, String id) {
 	// => 2) params 속성 대신 @RequestParam 으로 처리 가능
 	@GetMapping(value = "/incheck")
-	public ResponseEntity<MemberDTO> incheck(@RequestParam("jno") int jno,
-										@RequestParam("id") String id) {
-		
+	public ResponseEntity<MemberDTO> incheck(@RequestParam("jno") int jno, @RequestParam("id") String id) {
+
 		// 1. 준비
 //		ResponseEntity<JoDTO> result = null;
 //		JoDTO dto = new JoDTO(jno, "119", id, "펫밀리", "애완동물을 위한 홈페이지");
 		ResponseEntity<MemberDTO> result = null;
 		MemberDTO dto = service.selectOneJno(id, jno);
 		// => Mapper 의 selectOneJno 를 이용하여 id 와 jno 가 일치해야 출력되도록 수정
-		
+
 		// 2. service 처리
 		// => jno 의 값이 11~20 이면 성공 / 아니면 오류
 //		if (jno > 10 && jno <= 20) {
@@ -248,59 +246,58 @@ public class RTestController {
 		} else {
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(dto);
 		}
-		
+
 		return result;
 	}
-	
+
 //	-------------------------------
 	// 3) @PathVariable
 	// => URL 경로의 일부를 파라미터로 사용할때 이용
-	//    http://localhost:8088/rest/order/outer/노랑
+	// http://localhost:8088/rest/order/outer/노랑
 	// => 요청 URI 매핑에서 템플릿 변수를 설정하고 이를 매핑메서드 매개변수의 값으로 할당 시켜줌.
-	//    이때 파라미터가 1개이면 @PathVariable 과 같이 name을 생략할수 있다 
+	// 이때 파라미터가 1개이면 @PathVariable 과 같이 name을 생략할수 있다
 
 	@GetMapping("/order/{test1}/{test2}")
-	public String[] order(@PathVariable("test1") String category,
-							@PathVariable("test2") String color) {
-		
-		return new String[] {"category: "+ category, "color: "+ color};
+	public String[] order(@PathVariable("test1") String category, @PathVariable("test2") String color) {
+
+		return new String[] { "category: " + category, "color: " + color };
 	}
 
 //	-------------------------------
 	// 4) @RequestBody
-	// => JSON 형식으로 전달된 Data를 컨트롤러에서 사용자정의 객체(DTO) _Java객체 로 변환할때 사용 
+	// => JSON 형식으로 전달된 Data를 컨트롤러에서 사용자정의 객체(DTO) _Java객체 로 변환할때 사용
 	// => 요청 url : http://localhost:8088/rest/convert
-	// => Payload : {"jno":33, "jname":"삼삼오오", "id":"victory", "project":"RequestBody Test 중"}
+	// => Payload : {"jno":33, "jname":"삼삼오오", "id":"victory",
+	// "project":"RequestBody Test 중"}
 	// => REST Client 플러그인으로 확인
 	@PostMapping("/convert")
 	public ResponseEntity<?> convert(@RequestBody JoDTO dto) {
 		ResponseEntity<JoDTO> result = null;
-		
-		if(dto != null) {
+
+		if (dto != null) {
 			result = ResponseEntity.status(HttpStatus.OK).body(dto);
 		} else {
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(dto);
 		}
-		
+
 		return result;
 	}
+
 //	=========================================================
 	// ** Ajax : 비동기 통신
 	// => Request : JSON, Response : Text
 	// => fetch 요청
-	@PostMapping(value = "/rslogin",
-			consumes = MediaType.APPLICATION_JSON_VALUE,
-			produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "/rslogin", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<?> rslogin(@RequestBody MemberDTO dto, HttpSession session) {
 		ResponseEntity<String> result = null;
-		
+
 		// 1. password 보관
 		String password = dto.getPassword();
-		
+
 		// 2. service 처리
 		dto = service.selectOne(dto);
-		
-		if (dto != null && passwordEncoder.matches(password, dto.getPassword()) ) {
+
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword())) {
 			// id 확인 성공 -> password 확인 진행
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("loginName", dto.getName());
@@ -310,85 +307,94 @@ public class RTestController {
 			// 로그인 실패
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("로그인 실패");
 		}
-		
+
 		return result;
 	}
-	
+
 //	---------------------------------
 	// ** JSON -> JSON
-	@PostMapping(value = "/rsloginjj",
-			consumes = MediaType.APPLICATION_JSON_VALUE,
-			produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/rsloginjj", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> rsloginjj(@RequestBody MemberDTO dto, HttpSession session) {
 		ResponseEntity<UserDTO> result = null;
-		
+
 		String password = dto.getPassword();
-		
+
 		dto = service.selectOne(dto);
-		
-		if (dto != null && passwordEncoder.matches(password, dto.getPassword()) ) {
+
+		if (dto != null && passwordEncoder.matches(password, dto.getPassword())) {
 			session.setAttribute("loginID", dto.getId());
 			session.setAttribute("loginName", dto.getName());
 			session.setAttribute("img", dto.getUploadfile());
-			
-			//** 빌더 패턴(Builder pattern)
-			//=> DTO 에 @Builder 적용하여 사용
-			//=> 객체 생성시 보통 생성자를 사용해서 맴버변수를 초기화 하지만,
+
+			// ** 빌더 패턴(Builder pattern)
+			// => DTO 에 @Builder 적용하여 사용
+			// => 객체 생성시 보통 생성자를 사용해서 맴버변수를 초기화 하지만,
 			// 이 경우 몇 가지 단점이 있어 객체를 생성하는 별도의 builder를 두는 방법
 			final UserDTO userDTO = UserDTO.builder()
 					// => 데이터 값 변경을 방지하기 위해 final 사용
-					.id(dto.getId())
-					.username(dto.getName())
-					.build();
-			
+					.id(dto.getId()).username(dto.getName()).build();
+
 			result = ResponseEntity.status(HttpStatus.OK).body(userDTO);
 		} else {
 			// 로그인 실패
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(null);
 		}
-		
+
 		return result;
 	}
-	
+
 //	-------------------------
 	// Join
 	// => img 포함, 'multipart/form-data' type 으로 요청
 	// => text type 으로 전송
-	@PostMapping(value = "/rsjoin",
-			consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
-			produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "/rsjoin", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<?> rsjoin(MemberDTO dto) throws Exception {
 		ResponseEntity<?> result = null;
-		
+
 		// ** Join Service
 		// => PasswordEncoder (암호화 적용)
 		dto.setPassword(passwordEncoder.encode(dto.getPassword()));
-  
-		// => MultipartFile  
-		String realPath =  "D:\\JinHyuk_Ahn\\BackEnd\\MyWork\\demo\\src\\main\\webapp\\resources\\uploadImage\\";
-		String file1, file2="resources/uploadImage/basicman4.png";
-	
+
+		// => MultipartFile
+		String realPath = "D:\\JinHyuk_Ahn\\BackEnd\\MyWork\\demo\\src\\main\\webapp\\resources\\uploadImage\\";
+		String file1, file2 = "resources/uploadImage/basicman4.png";
+
 		MultipartFile uploadfilef = dto.getUploadfilef();
-		if ( uploadfilef!=null && !uploadfilef.isEmpty() ) {
-	     
-			// =>  물리적위치 저장 (file1)
-			file1 = realPath + uploadfilef.getOriginalFilename(); //저장경로 완성 
-			uploadfilef.transferTo(new File(file1)); //해당경로에 저장(붙여넣기)
-	 
+		if (uploadfilef != null && !uploadfilef.isEmpty()) {
+
+			// => 물리적위치 저장 (file1)
+			file1 = realPath + uploadfilef.getOriginalFilename(); // 저장경로 완성
+			uploadfilef.transferTo(new File(file1)); // 해당경로에 저장(붙여넣기)
+
 			// => 저장경로 완성 (file2)
 			file2 = "resources/uploadImage/" + uploadfilef.getOriginalFilename();
 		} // Image 선택한 경우
-	  
+
 		// => 완성된 경로를 dto 에 set
 		dto.setUploadfile(file2);
-	  
+
 		// => Service 처리
-		if ( service.insert(dto) > 0 ) {  // Transaction_Test, insert2 
+		if (service.insert(dto) > 0) { // Transaction_Test, insert2
 			result = ResponseEntity.status(HttpStatus.OK).body("~~ 회원가입 성공!! 로그인후 이용하세요 ~~");
-		}else {
+		} else {
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("~~ 회원가입 실패!! 다시 하세요 ~~");
 		}
-	      
+
 		return result;
+	}
+	
+//	------------------------------
+	// axios delete
+	@DeleteMapping(value = "/axidelete/{ii}")
+	public ResponseEntity<?> axidelete(@PathVariable("ii") String id, MemberDTO dto) {
+		dto.setId(id);
+		
+		if (service.delete(dto) > 0) {
+			log.info(HttpStatus.OK);
+			return new ResponseEntity<String>("** 삭제 성공 **", HttpStatus.OK);
+		} else {
+			log.info(HttpStatus.BAD_GATEWAY);
+			return new ResponseEntity<String>("** 삭제 실패, Data_NotFound **", HttpStatus.BAD_GATEWAY);
+		}
 	}
 }

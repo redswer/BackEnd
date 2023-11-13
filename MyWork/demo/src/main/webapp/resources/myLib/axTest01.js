@@ -2,7 +2,7 @@
 
 // 1) reLogin
 
-// 1-1) form 출력
+// ** form 출력
 
 function rsLoginf() {
 	let resultHTML = `
@@ -30,7 +30,7 @@ function rsLoginf() {
 }
 
 // -------------------------------
-// 1-2) login 기능 Service 요청 처리
+// 1-1) login 기능 Service 요청 처리
 // Ajax 요청, fetch 처리
 // => @RestController, 계층적 uri 적용, Post 요청
 
@@ -88,7 +88,7 @@ function rsLogin() {
 }
 
 // ---------------------------
-// 1-3) JSON -> JSON
+// 1-2) JSON -> JSON
 
 function rsLoginJJ() {
 	let url = "/rest/rsloginjj";

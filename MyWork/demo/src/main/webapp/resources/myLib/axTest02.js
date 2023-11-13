@@ -57,3 +57,81 @@ function rsJoin() {
 	});
 
 }
+// --------------------------------
+// 1-3) axios join
+
+function axiJoin() {
+	// 1. Data 준비
+	// => JS 의 내장 객체인 formData 에 담아서 전송
+	let formData = new FormData(document.getElementById('myForm'));
+
+	// 2. axios 요청
+	let url = "/rest/rsjoin";
+	
+	axios.post( url, formData,
+				{headers:{ "Content-Type" : "multipart/form-data"}
+	}).then( response => {
+		alert(`** response.data => ${response.data}`);
+		location.reload();
+		// => 화면 새로고침
+	}).catch(err => {
+		if (err.response.status == '502') {
+			alert("** 회원가입 실패, 입력 데이터 오류");
+		} else {
+			alert("** 시스템 오류 : " + err.message);
+		}
+	});
+}
+// ===========================================================
+
+// 2-1) axios list
+// => get 방식 (웹 페이지 요청) -> memberController 로 전송
+
+function axiMList() {
+	let url = "/member/axMemberList";
+	
+	axios.get(url
+	).then(response => {
+		alert("** response 성공 **");
+		document.getElementById('resultArea1').innerHTML = response.data;
+	}).catch(err => {
+		alert(`** response 실패 => ${err.message}`);
+	});
+	
+	document.getElementById('resultArea2').innerHTML = "";
+}
+// ----------------------------------
+// 2-2) axios delete
+// => delete 요청: 경로 (path) 에 requestData 를 연결
+// => rest/axidelete/id
+
+function axiDelete(id) {
+	let url = "/rest/axidelete/" + id;
+	// => 요청명은 모두 소문자
+	
+	axios.delete(url
+	).then(response => {
+		alert(`** 삭제 성공 => ${response.data}`);
+		
+		// ** 삭제 성공 후: delete 를 deleted 로 변경, onclick 이벤트 제거, 스타일 변경
+		document.getElementById(id).innerHTML = "deleted";
+		
+		document.getElementById(id).removeAttribute("onclick");
+		/* => 		
+		document.getElementById(id).onclick = function () {
+			return false;
+		};
+		*/
+		
+		document.getElementById(id).classList.remove("textlink");
+		document.getElementById(id).style.color = "gray";
+		document.getElementById(id).style.fontWeight = "bold";
+				
+	}).catch(err => {
+		if (err.response.status == '502') {
+			alert(`** 데이터 없음 **`);
+		} else {
+			alert("** 시스템 오류: " + err.message);
+		}
+	});
+}

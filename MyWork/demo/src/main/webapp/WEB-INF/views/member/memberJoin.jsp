@@ -225,7 +225,8 @@
 					<input type="submit" value="가입" id="submitTag"
 						onClick="return inCheck()" disabled/> &nbsp;&nbsp;
 					<input type="reset" value="취소" />&nbsp;&nbsp;
-					<input type="button" value="rsJoin" onclick="rsJoin()" />
+					<input type="button" value="rsJoin" onclick="rsJoin()" />&nbsp;&nbsp;
+					<input type="button" value="axiJoin" onclick="axiJoin()" />
 				</td>
 			</tr>
 		</table>
