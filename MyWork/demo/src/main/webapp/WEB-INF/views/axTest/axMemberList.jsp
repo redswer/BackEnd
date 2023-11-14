@@ -34,7 +34,7 @@
 		<c:if test="${!empty requestScope.banana}">
 			<c:forEach var="m" items="${requestScope.banana}">
 				<tr>
-					<td><a href="/member/mdetail?id=${m.id}">${m.id}</a></td>
+					<td><span class="textlink" id="${m.id}" onclick="idBList('${m.id}')">${m.id}</span></td>
 					<td>${m.name}</td>
 					<td>${m.age}</td>
 					<td>${m.jno}</td>

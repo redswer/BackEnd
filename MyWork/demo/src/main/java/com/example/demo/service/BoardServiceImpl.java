@@ -93,4 +93,9 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.delete(dto);
 	}
 
+	@Override
+	public List<BoardDTO> idBList(String id) {
+		return mapper.idBList(id);
+	}
+
 }// class

@@ -2,6 +2,8 @@ package mapperInterface;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
+
 import com.example.demo.domain.BoardDTO;
 
 import criTest.SearchCriteria;
@@ -33,4 +35,8 @@ public interface BoardMapper {
 
 	// ** delete
 	int delete(BoardDTO dto);
+	
+	// ** Rest_API Axios Test
+	@Select("select * from board where id=#{id} order by root desc, step asc")
+	List<BoardDTO> idBList(String id);
 }

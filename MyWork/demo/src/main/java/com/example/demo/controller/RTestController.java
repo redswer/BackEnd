@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.domain.BoardDTO;
 import com.example.demo.domain.JoDTO;
 import com.example.demo.domain.MemberDTO;
 import com.example.demo.domain.UserDTO;
+import com.example.demo.service.BoardService;
 import com.example.demo.service.JoService;
 import com.example.demo.service.MemberService;
 
@@ -121,6 +123,7 @@ public class RTestController {
 
 	MemberService service;
 	JoService jservice;
+	BoardService bservice;
 	PasswordEncoder passwordEncoder;
 
 	@GetMapping("/hello") // => http://localhost:8088/rest/hello 로 직접 요청
@@ -396,5 +399,22 @@ public class RTestController {
 			log.info(HttpStatus.BAD_GATEWAY);
 			return new ResponseEntity<String>("** 삭제 실패, Data_NotFound **", HttpStatus.BAD_GATEWAY);
 		}
+	}
+	
+//	-----------------------------
+	// axios board
+	@GetMapping(value = "idblist/{ii}")
+	public ResponseEntity<?> axiboard(@PathVariable("ii") String id) {
+		ResponseEntity<?> result = null;
+		List<BoardDTO> list = bservice.idBList(id);
+		
+		// ** 출력 Data 유/무 구별
+		if (list != null && list.size() > 0) {
+			result = ResponseEntity.status(HttpStatus.OK).body(list);			
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("데이터 없음");			
+		}
+		
+		return result;
 	}
 }

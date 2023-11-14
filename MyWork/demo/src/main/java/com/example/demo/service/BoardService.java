@@ -28,5 +28,7 @@ public interface BoardService {
 
 	// ** delete
 	int delete(BoardDTO dto);
-
+	
+	// ** Rest_API Axios Test
+	List<BoardDTO> idBList(String id);
 }
