@@ -417,4 +417,22 @@ public class RTestController {
 		
 		return result;
 	}
+	
+//	---------------------------
+	// jo detail
+	@GetMapping(value = "/jodetail", params = {"jno"}) 
+	// => 요청명에 jno 가 있는 request 만 전달받음
+	public ResponseEntity<?> jodetail(JoDTO dto, @RequestParam int jno) {
+		ResponseEntity<?> result = null;
+		dto.setJno(jno);
+		JoDTO jo = jservice.selectOne(dto);
+		
+		if (jo != null) {
+			result = ResponseEntity.status(HttpStatus.OK).body(jo);
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("데이터 없음");
+		}
+		
+		return result;
+	}
 }

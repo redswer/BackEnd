@@ -6,7 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>** Spring_Boot Axios MemberList **</title>
-<link>
+<link rel="stylesheet" type="text/css" href="/resources/myLib/myStyle.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/resources/myLib/jquery-3.2.1.min.js"></script>
+<script src="/resources/myLib/axTest01.js"></script>
+<script src="/resources/myLib/axTest02.js"></script>
+<script src="/resources/myLib/axTest03.js"></script>
 </head>
 <body>
 	<h2>** Spring_Boot Axios MemberList **</h2>
@@ -37,7 +42,12 @@
 					<td><span class="textlink" id="${m.id}" onclick="idBList('${m.id}')">${m.id}</span></td>
 					<td>${m.name}</td>
 					<td>${m.age}</td>
-					<td>${m.jno}</td>
+					<td align="center">
+						<span class="textlink" onmouseover="showJoDetail(event, ${m.jno})" onmouseout="hideJoDetail()">
+						<!-- m.jno 는 숫자이기 때문에 m.id 와 달리 '' 필요없이 사용 가능함 -->
+							${m.jno}
+						</span>
+					</td>
 					<td>${m.info}</td>
 					<td>${m.point}</td>
 					<td>${m.birthday}</td>
@@ -67,6 +77,7 @@
 	 		</tr>
 	 	</c:if>
 	</table>
+	<div id="content"></div>
 	<hr>
 	&nbsp; <a href="/home">Home</a>
 </body>
