@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="demo"/>
+		<item key="selection" value="GuestBook"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Guestbook"/>
+			<item value="GuestbookDTO"/>
 			<item value="Spring02"/>
 			<item value="domain"/>
 			<item value="junit"/>
@@ -21,10 +23,10 @@
 			<item value="MemberDTO"/>
 			<item value="MemberService"/>
 			<item value="Member"/>
-			<item value="MemberDAO"/>
-			<item value="bgcolor=&quot;aqua&quot;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="GuestBook"/>
+			<item value="GuestBookDTO"/>
 			<item value="demo"/>
 			<item value="com.example.demo.domain"/>
 			<item value="com.example.demo.domian"/>
@@ -38,8 +40,6 @@
 			<item value="Board"/>
 			<item value="BoardDTO"/>
 			<item value="BoardDAO"/>
-			<item value="BoardService"/>
-			<item value="bgcolor=&quot;khaki&quot;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
