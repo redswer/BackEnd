@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.domain.GuestBookDTO;
+import com.example.demo.domain.PageRequestDTO;
+import com.example.demo.domain.PageResultDTO;
 import com.example.demo.entity.GuestBook;
 import com.example.demo.service.GuestBookService;
 
@@ -63,7 +65,10 @@ public class HomeController {
 	@GetMapping("/gupdate")
 	public String gupdate() {
 
-		GuestBookDTO dto = GuestBookDTO.builder().gno(2l).title("JPA Update Test").content("스프링부트 Jpa Update Test")
+		GuestBookDTO dto = GuestBookDTO.builder()
+				.gno((long) 1)
+				.title("JPA Update Test")
+				.content("스프링부트 Jpa Update Test")
 				.writer("admin").build();
 		System.out.println("guest Update => " + service.register(dto));
 
@@ -88,6 +93,26 @@ public class HomeController {
 			// 자료가 없으면 org.springframework.dao.EmptyResultDataAccessException 발생확인
 		}
 
+		return "redirect:home";
+	}
+	
+//	-------------------------------
+	// ** JPA Paging & Sorting
+	
+	@GetMapping("/gpagelist")
+	public String gpagelist() {
+		PageRequestDTO requestDTO = PageRequestDTO.builder()
+				.page(1)
+				.size(5)
+				.build();
+		
+		PageResultDTO<GuestBookDTO, GuestBook> resultDTO = service.gPageList(requestDTO);
+		
+		for (GuestBookDTO g : resultDTO.getDtoList()) {
+			System.out.println(g +", regDate:"+g.getRegDate()
+            					 +", modDate:"+g.getModDate());
+		}
+		
 		return "redirect:home";
 	}
 }
